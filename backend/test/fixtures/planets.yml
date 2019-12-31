@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  size: MyString
+  distance: MyString
+  orbital_period: MyString
+  day_length: MyString
+  gravity: MyString
+  link: MyString
+
+two:
+  name: MyString
+  size: MyString
+  distance: MyString
+  orbital_period: MyString
+  day_length: MyString
+  gravity: MyString
+  link: MyString
