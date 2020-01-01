@@ -2,9 +2,14 @@
     background-color: rgb(92, 92, 134);
     margin-bottom: 0px;
     border-radius: 0em;
+    /* margin-left: 25%;
+    margin-right: 25%;  
+    width: 75%;
+    height: 30%;  */
 }
 
 .main-pic {
+    height: 100%;
     width: 100%;
 }
 
@@ -20,8 +25,7 @@
     column-gap: 0px;
 }
 
-#photos img {
-    
+#photos img {    
     width: 100% !important;
     height: 33% !important;
 }
@@ -34,14 +38,7 @@
     }
 }
 
-/* @media (max-width: 1000px) {
-    #photos {
-        -moz-column-count: 3;
-        -webkit-column-count: 3;
-        column-count: 3;
-    }
-} */
-
+/* set columns to two on screens 950px wide or less*/
 @media (max-width: 950px) {
     #photos {
         -moz-column-count: 2;
@@ -50,6 +47,7 @@
     }
 }
 
+/* set columns to one on screens 550px wide or less*/
 @media (max-width: 550px) {
     #photos {
         -moz-column-count: 1;
@@ -57,10 +55,8 @@
         column-count: 1;
     }
 }
-/* button {
-    background-color: rgb(222, 216, 135);
-} */
 
-/* .planet-picture {
-    margin-top: 200px;
-} */
+/* class for second rendering of planet picture */
+.second-render {
+    margin-top: 100px;
+}

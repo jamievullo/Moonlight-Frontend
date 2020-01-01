@@ -64,16 +64,20 @@ function postUser(name) {
         return response.json(); //json()method converts JSON to JS object.
     })
     .then(function(data) {
-        setUsers(data)
-        console.log(data)
-    // .catch(function(err) {
-    //     console.log(err)
-    //     })
+        //setUsers(data)
+        //console.log(data.name)
+        welcomeUser(data.name)
     });
     //after saving userName to database render planets to select from.
-    //function in planet.js
-    renderPlanets();
+    renderPlanets(); //function in planet.js
 }
+
+// let user;
+
+// function setUsers(data) {
+//     //console.log(data);
+//     //user = new User(data.name, data.user_id)
+// }
 
 // class User {
 //     constructor(name, userId) {
@@ -81,11 +85,3 @@ function postUser(name) {
 //         this.userId = userId
 //     }
 // }
-let user;
-
-function setUsers(data) {
-    //console.log(data);
-
-
-    //user = new User(data.name, data.user_id)
-}
