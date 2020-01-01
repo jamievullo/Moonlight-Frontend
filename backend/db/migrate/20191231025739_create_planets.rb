@@ -7,6 +7,7 @@ class CreatePlanets < ActiveRecord::Migration[6.0]
       t.string :orbital_period
       t.string :day_length
       t.string :gravity
+      t.string :description
       t.string :link
 
       t.timestamps

@@ -84,7 +84,7 @@ function postUser(name) {
 let user;
 
 function setUsers(data) {
-    console.log(data);
+    //console.log(data);
 
 
     //user = new User(data.name, data.user_id)

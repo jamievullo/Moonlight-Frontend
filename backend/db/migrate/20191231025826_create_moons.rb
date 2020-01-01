@@ -5,7 +5,9 @@ class CreateMoons < ActiveRecord::Migration[6.0]
       t.string :size
       t.string :orbital_period
       t.string :gravity
+      t.string :description
       t.string :link
+      t.integer :planet_id
 
       t.timestamps
     end

@@ -3,6 +3,9 @@ const moonUrl = `${targetUrl}/moons`;
 
 const clearForm = document.getElementById('user-form');
 const clearMainImage = document.getElementById('main-pic');
+const clearwelcomeUserBox = document.getElementById('welcome-user');
+const clearPlanetPics = document.getElementById('planet-pics');
+
 
 function renderPlanets() {
     //clear form and main image
@@ -40,13 +43,24 @@ function welcomeUser() {
 
 function selectPlanet() {
     // set variable to pic id for planets
-    const selectFromPlanets = document.querySelectorAll('#pic')
+    const selectFromPlanets = document.querySelectorAll('#pic');
     // iterate over pic collection and add event listener for which pic is being
-    // selected(event.target). Can use planet.target also since it gets iterated over.
+    // selected(event.target).
     selectFromPlanets.forEach(planet => {
         planet.addEventListener('click', e => {
-        console.log(e.target);
+        renderSelectedPlanet(e.target.outerHTML);
+        console.log(e.target.outerHTML);
         })
     })
 }
 
+function renderSelectedPlanet(planet) {
+    clearPlanetPics.remove();
+    clearwelcomeUserBox.remove();
+    const planetElement = document.getElementById('planet');
+    const selection = `
+        ${planet}
+    `;
+    planetElement.innerHTML = selection;
+    //fetch planet attributes
+}

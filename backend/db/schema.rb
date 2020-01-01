@@ -17,14 +17,9 @@ ActiveRecord::Schema.define(version: 2019_12_31_132241) do
     t.string "size"
     t.string "orbital_period"
     t.string "gravity"
-    t.string "link"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "pictures", force: :cascade do |t|
-    t.string "name"
     t.string "description"
+    t.string "link"
+    t.integer "planet_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_12_31_132241) do
     t.string "orbital_period"
     t.string "day_length"
     t.string "gravity"
+    t.string "description"
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
