@@ -37,7 +37,7 @@ function listenForSubmit() {
         e.preventDefault();
         //sets userName to value user inputs on form.
         const userName = e.target.elements["0"].value;
-        console.log(userName);
+        //console.log(userName);
         //fires postUser() function to create new user object in database.
         postUser(userName);
     });
