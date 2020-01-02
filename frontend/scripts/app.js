@@ -1,7 +1,5 @@
 const targetUrl = "http://localhost:3000"
 const userUrl = `${targetUrl}/users`
-// const planetUrl = `${targetUrl}/planets`
-// const moonUrl = `${targetUrl}/moons`
 
 document.addEventListener('DOMContentLoaded', function() {
     //after content loads fire userForm() function and load form.
@@ -16,8 +14,7 @@ function userForm() {
     const form = `<div class="jumbotron" id="new-user-form">
     <center>
         <h2 style="color: white">Welcome to Project Moonlight where we 
-        will explore the Planets and Moons 
-        of our Solar System</h2>
+        will explore the Planets and Moons of our Solar System</h2>
         <form>
             <div>
                 <label for"userName" style="color: white">Username:</label>
@@ -66,22 +63,9 @@ function postUser(name) {
     .then(function(data) {
         //setUsers(data)
         //console.log(data.name)
+        //renders users inputted name on render planets page
         welcomeUser(data.name)
     });
     //after saving userName to database render planets to select from.
-    renderPlanets(); //function in planet.js
+    renderPlanets(); //function in planet.js folder
 }
-
-// let user;
-
-// function setUsers(data) {
-//     //console.log(data);
-//     //user = new User(data.name, data.user_id)
-// }
-
-// class User {
-//     constructor(name, userId) {
-//         this.name = name 
-//         this.userId = userId
-//     }
-// }
