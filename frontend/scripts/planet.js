@@ -1,5 +1,4 @@
 const planetUrl = `${targetUrl}/planets`;
-const moonUrl = `${targetUrl}/moons`;
 const clearForm = document.getElementById('user-form');
 const clearMainImage = document.getElementById('main-pic');
 const clearwelcomeUserBox = document.getElementById('welcome-user');
@@ -11,17 +10,53 @@ function renderPlanets() {
     clearMainImage.remove();
     const selectPicElement = document.getElementById('planet-pics');
     const loadPlanetPics = `
-        <section id="photos">
-            <img class="planet-picture" id="1" src="images/Planets/Mercury-Colored1.jpg" alt="" height="300" width="500">      
-            <img class="planet-picture" id="4" src="images/Planets/Mars-Main6.jpg" alt="" height="300" width="500">
-            <img class="planet-picture" id="7" src="images/Planets/Uranus-Main2.jpg" alt="" height="300" width="500">
-            <img class="planet-picture" id="2" src="images/Planets/Venus-Main3.jpg" alt="" height="300" width="500">
-            <img class="planet-picture" id="5" src="images/Planets/Jupiter-Main.jpg" alt="" height="300" width="500">
-            <img class="planet-picture" id="8" src="images/Planets/Neptune-Main.jpg" alt="" height="300" width="500">
-            <img class="planet-picture" id="3" src="images/Planets/Earth-Main2.jpg" alt="" height="300" width="500">
-            <img class="planet-picture" id="6" src="images/Planets/Saturn-Main-Main2.jpeg" alt="" height="300" width="500">      
-            <img class="planet-picture" id="9" src="images/Planets/Pluto-Main.jpg" alt="" height="300" width="500">
-        </section>`;
+    <div class="ia-container">
+    <figure>
+        <img class="planet-picture" id="1" src="images/Planets/Mercury-Colored1.jpg" alt="Mercury" height="400" width="600">
+        <input type="radio" name="radio-set" checked="checked" />
+        <figcaption><span>Mercury</span></figcaption>
+        <figure>
+            <img class="planet-picture" id="2" src="images/Planets/Venus-Main3.jpg" alt="Venus" height="400" width="600">
+            <input type="radio" name="radio-set" checked="checked" />
+            <figcaption><span>Venus</span></figcaption>
+            <figure>
+                <img class="planet-picture" id="3" src="images/Planets/Earth-Main2.jpg" alt="Earth" height="400" width="600">
+                <input type="radio" name="radio-set" checked="checked" />
+                <figcaption><span>Earth</span></figcaption>
+                <figure>
+                    <img class="planet-picture" id="4" src="images/Planets/Mars-Main6.jpg" alt="Mars" height="400" width="600">
+                    <input type="radio" name="radio-set" checked="checked" />
+                    <figcaption><span>Mars</span></figcaption>
+                    <figure>
+                        <img class="planet-picture" id="5" src="images/Planets/Jupiter-Main.jpg" alt="Jupiter" height="400" width="600">
+                        <input type="radio" name="radio-set" checked="checked" />
+                        <figcaption><span>Jupiter</span></figcaption>
+                        <figure>
+                            <img class="planet-picture" id="6" src="images/Planets/Saturn-Main-Main2.jpeg" alt="Saturn" height="400" width="600">      
+                            <input type="radio" name="radio-set" checked="checked" />
+                            <figcaption><span>Saturn</span></figcaption>
+                            <figure>
+                                <img class="planet-picture" id="7" src="images/Planets/Uranus-Main2.jpg" alt="Uranus" height="400" width="600">
+                                <input type="radio" name="radio-set" checked="checked" />
+                                <figcaption><span>Uranus</span></figcaption>
+                                <figure>
+                                    <img class="planet-picture" id="8" src="images/Planets/Neptune-Main.jpg" alt="Neptune" height="400" width="600">
+                                    <input type="radio" name="radio-set" checked="checked" />
+                                    <figcaption><span>Neptune</span></figcaption>
+                                    <figure>
+                                        <img class="planet-picture" id="9" src="images/Planets/Pluto-Main.jpg" alt="Pluto" height="400" width="600">
+                                        <input type="radio" name="radio-set" checked="checked" />
+                                        <figcaption><span>Pluto</span></figcaption>
+                                    </figure>
+                                </figure>
+                            </figure>
+                        </figure>
+                    </figure>
+                </figure>
+            </figure>
+        </figure>
+    </figure>
+</div>`;
     //render planets
     selectPicElement.innerHTML = loadPlanetPics;
 }
@@ -40,7 +75,7 @@ function selectPlanet() {
     // set variable to pic id for planets
     const selectFromPlanets = document.querySelectorAll('.planet-picture');
     // iterate over pic collection and listen for which pic is being
-    // selected then pass in resulting(e.target.outerHTML) into renderSelectedPlanet().
+    // selected then pass in resulting =>(e.target.outerHTML)=> into renderSelectedPlanet().
     selectFromPlanets.forEach(planet => {
         planet.addEventListener('click', e => {            
             renderSelectedPlanet(e.target.outerHTML);
