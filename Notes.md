@@ -147,7 +147,7 @@
 	-moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
 }
 
-/*A small hack to prevent flickering on some browsers*/
+/*prevent flickering on some browsers*/
 .accordian ul {
 	width: 2000px;
 	/*This will give ample space to the last item to move

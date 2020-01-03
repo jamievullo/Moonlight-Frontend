@@ -90,15 +90,17 @@ function renderPlanets() {
     selectPicElement.innerHTML = loadPlanetPics;
 }
 
-function welcomeUser(data) {
+function welcomeUser(name) {
     const welcomeUserBox = document.getElementById('welcome-user');
     //create variable that displays welcome message based on username.
-    const welcome = `<div><h2><center>Welcome ${data}, please select a Planet 
+    const welcome = `<div><h2><center>Welcome ${name}, please select a Planet 
     by clicking on a tile</center></h2></div>`;
 
     welcomeUserBox.innerHTML = welcome;
     selectPlanet();
 }
+
+let chosenPlanetPicture;
 
 function selectPlanet() {
     // set variable to pic id for planets
@@ -107,10 +109,11 @@ function selectPlanet() {
     // selected then pass in resulting =>(e.target.outerHTML)=> into renderSelectedPlanet().
     selectFromPlanets.forEach(planet => {
         planet.addEventListener('click', e => {            
-            renderSelectedPlanet(e.target.outerHTML);
-            console.log(e)
-            console.log(e.target.outerHTML);
-            console.log(e.toElement.id)
+            //renderSelectedPlanet(e.target.outerHTML);
+            chosenPlanetPicture = e.target.outerHTML
+            //console.log(e)
+            //console.log(e.target.outerHTML);
+            //console.log(e.toElement.id)
             fetchPlanetData(e.toElement.id);//gets pic id from selected planet to compare to DB id to render planets data
         })
     })
@@ -128,11 +131,38 @@ function fetchPlanetData(id) { //need to pass in db "id" of selected planet
     })
 }    
 
-function renderSelectedPlanet(planet) { //passes in e.target.previousElementSibling.outerHTML
+function renderSelectedPlanet(chosenPlanet) { //passes in e.target.previousElementSibling.outerHTML
     clearPlanetPics.remove();
     clearWelcomeUserBox.remove();
     const planetElement = document.getElementById('planet');
-    const selection = `<div class="second-render">${planet}</div>`;
+    const selection = `<div class="second-render">${chosenPlanetPicture}</div>
+    <h1>${chosenPlanet.name}</h1>
+    <div class="size">Size: ${chosenPlanet.size}</div>
+    <div class="distance">Distance from Sun: ${chosenPlanet.distance}</div>
+    <div class="orbital-period">Orbital Period: ${chosenPlanet.orbital_period}</div>
+    <div class="day-length">Day Length: {chosenPlanet.day_length}</div>
+    <div class="gravity">Gravity: ${chosenPlanet.gravity}</div>
+    <div class="description">Description: ${chosenPlanet.description}</div>
+    <div class="link">Link to Wiki: ${chosenPlanet.link}</div>
+    <button onclick="window.location.reload()">Reload</button>`;
+    //<button onclick="window.location.assign(planetUrl)">Reload</button> //redirects to url
+    // <div class="wrapper">
+    //     <ul class="stage">
+    //         <li class="scene">
+    //             <div class="movie">
+    //                 <div class="poster"></div>
+    //                     <div class="info">
+    //                    <header>
+    //                    </header>
+    //                     <p>
+    //                         //${description of planet}
+    //                     </p>
+    //                 </div>
+    //             </div>
+    //         </li>
+    //     </ul> 
+    // </div>
+
     //renders planet picture to 'planet' html element
     planetElement.innerHTML = selection;    
 }
@@ -146,7 +176,8 @@ function fetchSelectedPlanetData(planetData, id) {
     .then(function(data) {
         chosenPlanet = new Planet(data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link)
         console.log(chosenPlanet)
-        renderPlanetData(chosenPlanet)
+        renderSelectedPlanet(chosenPlanet)
+        //renderPlanetData(chosenPlanet)
     })
 
 }
@@ -166,8 +197,8 @@ class Planet {
     }
 }
 
-function renderPlanetData() {
-    const planetAttributeElement = document.getElementById('planet-attributes');
-    const planetButtons = `<div class="planet-data">${this.name}</div>`;
-    planetAttributeElement.innerHTML = planetButtons
-}
+// function renderPlanetData() {
+//     const planetAttributeElement = document.getElementById('planet-attributes');
+//     const planetButtons = `<div class="planet-data">${chosenPlanet.name}</div>`;
+//     planetAttributeElement.innerHTML = planetButtons
+// }
