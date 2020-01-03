@@ -19,8 +19,8 @@ function userForm() {
             <div>
                 <label for"userName" style="color: white">Username:</label>
                 <input type="text" id="userName" name="userName">
+                <button type="submit">Start Exploring</button>
             </div>
-            <button type="submit">Start Exploring</button>
         </form>
     </center>
     </div>`;

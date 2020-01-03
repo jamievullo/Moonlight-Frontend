@@ -17,7 +17,7 @@ function renderPlanets() {
 				<a href="#">Mercury</a>
 			</div>
 			<a href="#">
-				<img class="planet-picture" id="1" src="images/Planets/Mercury-Colored1.jpg" alt="Mercury" height="400" width="640">
+				<img class="planet-picture" id="1" src="images/Planets/Mercury-Colored1.jpg" alt="Mercury">
 			</a>
 		</li>
 		<li>
@@ -25,7 +25,7 @@ function renderPlanets() {
 				<a href="#">Venus</a>
 			</div>
 			<a href="#">
-				<img class="planet-picture" id="2" src="images/Planets/Venus-Main3.jpg" alt="Venus" height="400" width="640">
+				<img class="planet-picture" id="2" src="images/Planets/Venus-Main3.jpg" alt="Venus">
 			</a>
 		</li>
         <li>
@@ -33,7 +33,7 @@ function renderPlanets() {
 				<a href="#">Earth</a>
 			</div>
 			<a href="#">
-				<img class="planet-picture" id="3" src="images/Planets/Earth-Main2.jpg" alt="Earth" height="400" width="640">
+				<img class="planet-picture" id="3" src="images/Planets/Earth-Main2.jpg" alt="Earth">
 			</a>
 		</li>
 		<li>
@@ -41,7 +41,7 @@ function renderPlanets() {
 				<a href="#">Mars</a>
 			</div>
 			<a href="#">
-				<img class="planet-picture" id="4" src="images/Planets/Mars-Main6.jpg" alt="Mars" height="400" width="640">
+				<img class="planet-picture" id="4" src="images/Planets/Mars-Main6.jpg" alt="Mars">
 			</a>
 		</li>
 		<li>
@@ -49,7 +49,7 @@ function renderPlanets() {
 				<a href="#">Jupiter</a>
 			</div>
 			<a href="#">
-				<img class="planet-picture" id="5" src="images/Planets/Jupiter-Main.jpg" alt="Jupiter" height="400" width="640">
+				<img class="planet-picture" id="5" src="images/Planets/Jupiter-Main.jpg" alt="Jupiter">
 			</a>
 		</li>
         <li>
@@ -57,7 +57,7 @@ function renderPlanets() {
 				<a href="#">Saturn</a>
 			</div>
 			<a href="#">
-				<img class="planet-picture" id="6" src="images/Planets/Saturn-Main-Main2.jpeg" alt="Saturn" height="400" width="640"> 
+				<img class="planet-picture" id="6" src="images/Planets/Saturn-Main-Main2.jpeg" alt="Saturn"> 
 			</a>
 		</li>
 		<li>
@@ -65,7 +65,7 @@ function renderPlanets() {
 				<a href="#">Uranus</a>
 			</div>
 			<a href="#">
-				<img class="planet-picture" id="7" src="images/Planets/Uranus-Main2.jpg" alt="Uranus" height="400" width="640">
+				<img class="planet-picture" id="7" src="images/Planets/Uranus-Main2.jpg" alt="Uranus">
 			</a>
 		</li>
         <li>
@@ -73,7 +73,7 @@ function renderPlanets() {
 				<a href="#">Neptune</a>
 			</div>
 			<a href="#">
-				<img class="planet-picture" id="8" src="images/Planets/Neptune-Main.jpg" alt="Neptune" height="400" width="640">
+				<img class="planet-picture" id="8" src="images/Planets/Neptune-Main.jpg" alt="Neptune">
 			</a>
 		</li>
         <li>
@@ -81,7 +81,7 @@ function renderPlanets() {
 				<a href="#">Pluto</a>
 			</div>
 			<a href="#">
-				<img class="planet-picture" id="9" src="images/Planets/Pluto-Main.jpg" alt="Pluto" height="400" width="640">
+				<img class="planet-picture" id="9" src="images/Planets/Pluto-Main.jpg" alt="Pluto">
 			</a>
 		</li>
 	</ul>
@@ -116,8 +116,7 @@ function selectPlanet() {
             //console.log(e.toElement.id)
             fetchPlanetData(e.toElement.id);//gets pic id from selected planet to compare to DB id to render planets data
         })
-    })
-    
+    })    
 }
 
 function fetchPlanetData(id) { //need to pass in db "id" of selected planet
@@ -135,39 +134,36 @@ function renderSelectedPlanet(chosenPlanet) { //passes in e.target.previousEleme
     clearPlanetPics.remove();
     clearWelcomeUserBox.remove();
     const planetElement = document.getElementById('planet');
-    const selection = `<div class="second-render">${chosenPlanetPicture}</div>
-    <h1>${chosenPlanet.name}</h1>
-    <div class="size">Size: ${chosenPlanet.size}</div>
-    <div class="distance">Distance from Sun: ${chosenPlanet.distance}</div>
-    <div class="orbital-period">Orbital Period: ${chosenPlanet.orbital_period}</div>
-    <div class="day-length">Day Length: {chosenPlanet.day_length}</div>
-    <div class="gravity">Gravity: ${chosenPlanet.gravity}</div>
-    <div class="description">Description: ${chosenPlanet.description}</div>
-    <div class="link">Link to Wiki: ${chosenPlanet.link}</div>
-    <button onclick="window.location.reload()">Reload</button>`;
-    //<button onclick="window.location.assign(planetUrl)">Reload</button> //redirects to url
-    // <div class="wrapper">
-    //     <ul class="stage">
-    //         <li class="scene">
-    //             <div class="movie">
-    //                 <div class="poster"></div>
-    //                     <div class="info">
-    //                    <header>
-    //                    </header>
-    //                     <p>
-    //                         //${description of planet}
-    //                     </p>
-    //                 </div>
-    //             </div>
-    //         </li>
-    //     </ul> 
-    // </div>
-
-    //renders planet picture to 'planet' html element
+    const selection = `
+    <div class="second-render"></div>
+        <div class="wrapper">
+            <ul class="stage">
+                <li class="scene">
+                    <div class="movie">
+                        <div class="planet-animation">${chosenPlanetPicture}</div>
+                        <div class="info">
+                        <header>
+                            <h1>${chosenPlanet.name}</h1>
+                            <div class="size">Size: ${chosenPlanet.size}</div>
+                            <div class="distance">Distance from Sun: ${chosenPlanet.distance}</div>
+                            <div class="orbital-period">Orbital Period: ${chosenPlanet.orbital_period}</div>
+                            <div class="day-length">Day Length: ${chosenPlanet.day_length}</div>
+                            <div class="gravity">Gravity: ${chosenPlanet.gravity}</div>
+                            <a href="${chosenPlanet.link}">${chosenPlanet.link}</a>
+                        </header>
+                        <p>
+                            <div class="description" style="color: white">${chosenPlanet.description}</div>
+                            </p>
+                        <button class="moon-button" id="moon-button">Explore Moons of ${chosenPlanet.name}</button>
+                    </div>
+                </div>
+            </li>
+        </ul> 
+    </div>`;
+    //<button onclick="window.location.reload()">Reload</button>
     planetElement.innerHTML = selection;    
 }
 
-//takes all planet objects and selects the planet based on id and image id comparison
 function fetchSelectedPlanetData(planetData, id) {
     fetch(`${planetUrl}/${id}`)
     .then(function(response) {
@@ -177,9 +173,7 @@ function fetchSelectedPlanetData(planetData, id) {
         chosenPlanet = new Planet(data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link)
         console.log(chosenPlanet)
         renderSelectedPlanet(chosenPlanet)
-        //renderPlanetData(chosenPlanet)
     })
-
 }
 
 let chosenPlanet; 
@@ -197,8 +191,3 @@ class Planet {
     }
 }
 
-// function renderPlanetData() {
-//     const planetAttributeElement = document.getElementById('planet-attributes');
-//     const planetButtons = `<div class="planet-data">${chosenPlanet.name}</div>`;
-//     planetAttributeElement.innerHTML = planetButtons
-// }
