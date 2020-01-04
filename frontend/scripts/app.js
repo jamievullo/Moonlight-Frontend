@@ -67,5 +67,5 @@ function postUser(name) {
         welcomeUser(data.name)
     });
     //after saving userName to database render planets to select from.
-    renderPlanets(); //function in planet.js folder
+    renderPlanets();
 }

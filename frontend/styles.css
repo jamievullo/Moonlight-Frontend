@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(92, 92, 134);
+}
+
 .jumbotron {
     background-color: rgb(92, 92, 134);
     margin-bottom: 0px;
@@ -8,6 +12,7 @@
     height: 100%;
     width: 100%;
 }
+
 
 .planet-picture {
     height: 400px;

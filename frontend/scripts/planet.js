@@ -93,8 +93,8 @@ function renderPlanets() {
 function welcomeUser(name) {
     const welcomeUserBox = document.getElementById('welcome-user');
     //create variable that displays welcome message based on username.
-    const welcome = `<div><h2><center>Welcome ${name}, please select a Planet 
-    by clicking on a tile</center></h2></div>`;
+    const welcome = `<div><h2 style="color: white"><center>Welcome ${name}, please select a Planet 
+    by clicking on a tile.</center></h2></div>`;
 
     welcomeUserBox.innerHTML = welcome;
     selectPlanet();
@@ -154,14 +154,15 @@ function renderSelectedPlanet(chosenPlanet) { //passes in e.target.previousEleme
                         <p>
                             <div class="description" style="color: white">${chosenPlanet.description}</div>
                             </p>
-                        <button class="moon-button" id="moon-button">Explore Moons of ${chosenPlanet.name}</button>
+                        <button type="submit" id="moon-button">Explore Moons of ${chosenPlanet.name}</button>
                     </div>
                 </div>
             </li>
         </ul> 
     </div>`;
     //<button onclick="window.location.reload()">Reload</button>
-    planetElement.innerHTML = selection;    
+    planetElement.innerHTML = selection;
+    listenForMoonSubmit();
 }
 
 function fetchSelectedPlanetData(planetData, id) {
@@ -172,7 +173,7 @@ function fetchSelectedPlanetData(planetData, id) {
     .then(function(data) {
         chosenPlanet = new Planet(data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link)
         console.log(chosenPlanet)
-        renderSelectedPlanet(chosenPlanet)
+        renderSelectedPlanet(chosenPlanet);
     })
 }
 
@@ -190,4 +191,3 @@ class Planet {
     this.link = link 
     }
 }
-
