@@ -119,7 +119,7 @@ function selectPlanet() {
     })    
 }
 
-function fetchPlanetData(id) { //need to pass in db "id" of selected planet
+function fetchPlanetData(id) {
     fetch(planetUrl)
     .then(function(response) {
         return response.json();
@@ -171,7 +171,7 @@ function fetchSelectedPlanetData(planetData, id) {
         return response.json();
     })
     .then(function(data) {
-        chosenPlanet = new Planet(data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link)
+        chosenPlanet = new Planet(data.id, data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link)
         console.log(chosenPlanet)
         renderSelectedPlanet(chosenPlanet);
     })
@@ -180,7 +180,8 @@ function fetchSelectedPlanetData(planetData, id) {
 let chosenPlanet; 
 
 class Planet {
-    constructor(name, size, distance, orbital_period, day_length, gravity, description, link, has_moons) {
+    constructor(id, name, size, distance, orbital_period, day_length, gravity, description, link, has_moons) {
+    this.id = id
     this.name = name
     this.size = size
     this.distance = distance
