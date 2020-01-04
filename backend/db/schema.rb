@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_12_31_132241) do
     t.string "gravity"
     t.string "description"
     t.string "link"
+    t.string "picture"
     t.integer "planet_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -2,7 +2,7 @@ const moonUrl = `${targetUrl}/moons`;
 const clearChosenPlanetPic = document.getElementById('planet');
 
 class Moon {
-    constructor(id, name, size, orbital_period, gravity, description, link, planet_id) {
+    constructor(id, name, size, orbital_period, gravity, description, link, picture, planet_id) {
     this.id = id
     this.name = name
     this.size = size    
@@ -10,6 +10,7 @@ class Moon {
     this.gravity = gravity
     this.description = description
     this.link = link
+    this.picture = picture
     this.planet_id = planet_id
     }
 }
@@ -19,14 +20,13 @@ function listenForMoonSubmit() {
     retrieveMoons.addEventListener('click', e => {
         // console.log(chosenPlanet.id);
         // console.log(e.target.id);
-        fetchChosenPlanetMoonData(); //(e.target.id)
+        fetchChosenPlanetMoonData();
     });
 }
 
 let chosenMoons = [];
 
 function fetchChosenPlanetMoonData() {
-    //fetch(`${moonUrl}/${chosenPlanet.id}`) //this worked but returned the moon with id of planet id
     fetch(`${moonUrl}`)
     .then(function(response) {
         return response.json();
@@ -39,7 +39,7 @@ function fetchChosenPlanetMoonData() {
 function createMoon(data) {
     data.map(moon => {
         // console.log(moon)
-        let newMoon = new Moon(moon.id, moon.name, moon.size, moon.orbital_period, moon.gravity, moon.description, moon.link, moon.planet_id)
+        let newMoon = new Moon(moon.id, moon.name, moon.size, moon.orbital_period, moon.gravity, moon.description, moon.link, moon.picture, moon.planet_id)
         chosenMoons.push(newMoon);
     })
     selectPlanetMoons(chosenMoons);
@@ -50,26 +50,39 @@ let selectedMoons = [];
 function selectPlanetMoons(chosenMoons) {
     chosenMoons.map(moons => {
         if(moons.planet_id === chosenPlanet.id) {
-            console.log(moons);
+            //console.log(moons);
             selectedMoons.push(moons);
-            selectedMoons.map(moon => {
-                //console.log(moon);
-                renderPlanetMoons(moon);
-            })
-        }
+            }
+        })
+        clearChosenPlanetPic.remove();
+
+        const selectMoonPicsElement = document.getElementById('moon-pics');
+        selectMoonPicsElement.innerHTML = `<section id="photos"></section>`;
+
+        selectedMoons.forEach(moon => {
+            console.log(moon);
+            renderPlanetMoons(moon);
+        })
+        selectMoon();
+}
+
+function renderPlanetMoons(moon) {    
+    const moonDisplay = document.getElementById('photos') ;   
+    const displayMoons = //display moon pics
+    `<img id="${moon.id}" src="${moon.picture}" alt="${moon.name}">`
+
+    moonDisplay.innerHTML += displayMoons; 
+}
+
+function selectMoon() {
+    const selectFromMoons = document.getElementById('moon-pics')
+    selectFromMoons.addEventListener('click', e => {
+        console.log(e.target.outerHTML)
+        renderMoon(e.target.outerHTML)
     })
 }
 
-function renderPlanetMoons(moon) {
-    clearChosenPlanetPic.remove();
-    
-    const selectMoonPicsElement = document.getElementById('moon-pics');
-    const displayMoons = //display moon pics
-    `<h1>${moon.name}</h1>`
-    selectMoonPicsElement.innerHTML = displayMoons; 
-}
-
-function renderMoon() {
+function renderMoon(moonPicData) {
     const selectMoonElement = document.getElementById('moon');
     const displayMoon = `
     <div class="second-render"></div>

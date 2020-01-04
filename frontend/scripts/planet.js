@@ -125,7 +125,7 @@ function fetchPlanetData(id) {
         return response.json();
     })
     .then(function(data) {
-        console.log(data);
+        //console.log(data);
         fetchSelectedPlanetData(data, id);
     })
 }    
@@ -172,7 +172,7 @@ function fetchSelectedPlanetData(planetData, id) {
     })
     .then(function(data) {
         chosenPlanet = new Planet(data.id, data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link, data.has_moons)
-        console.log(chosenPlanet)
+        //console.log(chosenPlanet)
         renderSelectedPlanet(chosenPlanet);
     })
 }

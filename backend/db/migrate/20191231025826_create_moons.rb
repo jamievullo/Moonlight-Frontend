@@ -7,6 +7,7 @@ class CreateMoons < ActiveRecord::Migration[6.0]
       t.string :gravity
       t.string :description
       t.string :link
+      t.string :picture
       t.integer :planet_id
 
       t.timestamps
