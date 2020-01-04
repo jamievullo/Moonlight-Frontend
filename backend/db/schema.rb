@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_12_31_132241) do
     t.string "gravity"
     t.string "description"
     t.string "link"
-    t.boolean "has_moons"
+    t.string "has_moons"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

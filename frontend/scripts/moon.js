@@ -1,30 +1,29 @@
 const moonUrl = `${targetUrl}/moons`;
 const clearChosenPlanetPic = document.getElementById('planet');
 
-let chosenMoon; 
-
 class Moon {
-    constructor(name, size, orbital_period, gravity, description, link) {
+    constructor(id, name, size, orbital_period, gravity, description, link, planet_id) {
+    this.id = id
     this.name = name
     this.size = size    
     this.orbital_period = orbital_period    
     this.gravity = gravity
     this.description = description
     this.link = link
-    //this.planet_id = planet_id
+    this.planet_id = planet_id
     }
 }
 
 function listenForMoonSubmit() {
     const retrieveMoons = document.getElementById('moon-button');
     retrieveMoons.addEventListener('click', e => {
-        console.log(chosenPlanet.id)
-        console.log(e.target.id)
-        fetchChosenPlanetMoonData() //(e.target.id)
+        // console.log(chosenPlanet.id);
+        // console.log(e.target.id);
+        fetchChosenPlanetMoonData(); //(e.target.id)
     });
 }
 
-let chosenMoons;
+let chosenMoons = [];
 
 function fetchChosenPlanetMoonData() {
     //fetch(`${moonUrl}/${chosenPlanet.id}`) //this worked but returned the moon with id of planet id
@@ -33,22 +32,72 @@ function fetchChosenPlanetMoonData() {
         return response.json();
     })
     .then(function(data) {
-        chosenMoons = new Moon(data.id, data.name, data.size, data.orbital_period, data.gravity, data.description, data.link)
-        // have to add data.planet_id
-        console.log(chosenMoons)
-        //renderMoons(chosenMoons);
+        createMoon(data);       
     })
 }
 
-// function renderMoons(chosenMoons) {
-//     clearChosenPlanetPic.remove()
-//     const selectMoonElement = document.getElementById('moon-pics')
-//     const displayMoons = //display moon pics
-//     `<div><h1>Moon pic</h1></div>`
-//     selectMoonElement.innerHTML = displayMoons 
-// }
+function createMoon(data) {
+    data.map(moon => {
+        // console.log(moon)
+        let newMoon = new Moon(moon.id, moon.name, moon.size, moon.orbital_period, moon.gravity, moon.description, moon.link, moon.planet_id)
+        chosenMoons.push(newMoon);
+    })
+    selectPlanetMoons(chosenMoons);
+}
 
+let selectedMoons = [];
 
+function selectPlanetMoons(chosenMoons) {
+    chosenMoons.map(moons => {
+        if(moons.planet_id === chosenPlanet.id) {
+            console.log(moons);
+            selectedMoons.push(moons);
+            selectedMoons.map(moon => {
+                //console.log(moon);
+                renderPlanetMoons(moon);
+            })
+        }
+    })
+}
+
+function renderPlanetMoons(moon) {
+    clearChosenPlanetPic.remove();
+    
+    const selectMoonPicsElement = document.getElementById('moon-pics');
+    const displayMoons = //display moon pics
+    `<h1>${moon.name}</h1>`
+    selectMoonPicsElement.innerHTML = displayMoons; 
+}
+
+function renderMoon() {
+    const selectMoonElement = document.getElementById('moon');
+    const displayMoon = `
+    <div class="second-render"></div>
+        <div class="wrapper">
+            <ul class="stage">
+                <li class="scene">
+                    <div class="movie">
+                        <div class="planet-animation">${chosenPlanetPicture}</div>
+                        <div class="info">
+                            <header>
+                                <h1>${moon.name}</h1>
+                                <div class="size">Size: ${moon.size}</div>
+                                    <div class="orbital-period">Orbital Period: ${moon.orbital_period}</div>
+                                    <div class="gravity">Gravity: ${moon.gravity}</div>
+                                    <a href="${moon.link}"/target="_blank">${moon.link}</a>
+                            </header>
+                            <p>
+                                <div class="description" style="color: white">${moon.description}</div>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>`;
+    selectMoonElement.innerHTML = displayMoon;    
+}
+    
+    
 //click on explore moons button which passes in to another function the planet id to retrieve
 //that planets moon/s if any. Add Boolean to planet data for planets that have moons. After passing in id, need to clear selected planet "box"and
 //need to render selected planets moons. Then user will be able to select from moon/s, and based

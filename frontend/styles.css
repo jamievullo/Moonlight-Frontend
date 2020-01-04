@@ -1,5 +1,8 @@
 body {
-    background-color: rgb(92, 92, 134);
+    /* background-color: rgb(92, 92, 134); */
+    background-image:url("images/Moonlight-Background2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .jumbotron {

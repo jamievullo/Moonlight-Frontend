@@ -149,7 +149,7 @@ function renderSelectedPlanet(chosenPlanet) { //passes in e.target.previousEleme
                             <div class="orbital-period">Orbital Period: ${chosenPlanet.orbital_period}</div>
                             <div class="day-length">Day Length: ${chosenPlanet.day_length}</div>
                             <div class="gravity">Gravity: ${chosenPlanet.gravity}</div>
-                            <a href="${chosenPlanet.link}">${chosenPlanet.link}</a>
+                            <a href="${chosenPlanet.link}"/target="_blank">${chosenPlanet.link}</a>
                         </header>
                         <p>
                             <div class="description" style="color: white">${chosenPlanet.description}</div>
@@ -171,7 +171,7 @@ function fetchSelectedPlanetData(planetData, id) {
         return response.json();
     })
     .then(function(data) {
-        chosenPlanet = new Planet(data.id, data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link)
+        chosenPlanet = new Planet(data.id, data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link, data.has_moons)
         console.log(chosenPlanet)
         renderSelectedPlanet(chosenPlanet);
     })
