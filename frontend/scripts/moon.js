@@ -10,7 +10,8 @@ class Moon {
     this.orbital_period = orbital_period    
     this.gravity = gravity
     this.description = description
-    this.link = link 
+    this.link = link
+    this.planet_id = planet_id
     }
 }
 
@@ -25,8 +26,8 @@ function listenForMoonSubmit() {
 function renderMoons() {
     clearChosenPlanetPic.remove()
     const selectMoonElement = document.getElementById('moon-pics')
-    const displayMoons = `
-    <div><h1>Hello</h1></div>`
+    const displayMoons = //display moon pics
+    `<div><h1>Moon pic</h1></div>`
     selectMoonElement.innerHTML = displayMoons 
 }
 

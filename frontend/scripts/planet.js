@@ -180,7 +180,7 @@ function fetchSelectedPlanetData(planetData, id) {
 let chosenPlanet; 
 
 class Planet {
-    constructor(name, size, distance, orbital_period, day_length, gravity, description, link) {
+    constructor(name, size, distance, orbital_period, day_length, gravity, description, link, has_moons) {
     this.name = name
     this.size = size
     this.distance = distance
@@ -188,6 +188,7 @@ class Planet {
     this.day_length = day_length
     this.gravity = gravity
     this.description = description
-    this.link = link 
+    this.link = link
+    this.has_moons = has_moons
     }
 }

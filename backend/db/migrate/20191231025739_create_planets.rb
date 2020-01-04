@@ -9,6 +9,7 @@ class CreatePlanets < ActiveRecord::Migration[6.0]
       t.string :gravity
       t.string :description
       t.string :link
+      t.boolean :has_moons
 
       t.timestamps
     end
