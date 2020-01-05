@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :pictures
-  resources :moons
-  resources :planets
+
+  resources :planets do 
+    resources :moon
+  end
+
+  resources :users, only: [:index, :create, :show]
+  resources :moons, only: [:index, :show]
+  resources :planets, only: [:index, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
