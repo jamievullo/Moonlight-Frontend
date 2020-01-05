@@ -3,6 +3,8 @@ const clearForm = document.getElementById('user-form');
 const clearMainImage = document.getElementById('main-pic');
 const clearWelcomeUserBox = document.getElementById('welcome-user');
 const clearPlanetPics = document.getElementById('planet-pics');
+let chosenPlanetPicture;
+let chosenPlanet;
 
 function renderPlanets() {
     //clear form and main image
@@ -93,14 +95,12 @@ function renderPlanets() {
 function welcomeUser(name) {
     const welcomeUserBox = document.getElementById('welcome-user');
     //create variable that displays welcome message based on username.
-    const welcome = `<div><h2 style="color: white"><center>Welcome ${name}, please select a Planet 
+    const welcome = `<div class="welcome"><h2 style="color: white"><center>Welcome ${name}, please select a Planet 
     by clicking on a tile.</center></h2></div>`;
 
     welcomeUserBox.innerHTML = welcome;
     selectPlanet();
 }
-
-let chosenPlanetPicture;
 
 function selectPlanet() {
     // set variable to pic id for planets
@@ -183,9 +183,7 @@ function fetchSelectedPlanetData(planetData, id) {
         //console.log(chosenPlanet)
         renderSelectedPlanet(chosenPlanet);
     })
-}
-
-let chosenPlanet; 
+} 
 
 class Planet {
     constructor(id, name, size, distance, orbital_period, day_length, gravity, description, link, has_moons) {

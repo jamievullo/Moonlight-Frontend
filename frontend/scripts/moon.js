@@ -1,6 +1,10 @@
 const moonUrl = `${targetUrl}/moons`;
 const clearChosenPlanetPic = document.getElementById('planet');
-const clearMoonPics = document.getElementById('moon-pics')
+const clearMoonPics = document.getElementById('moon-pics');
+let selectedMoon;
+let chosenMoons = [];
+let newMoon;
+let selectedMoons = [];
 
 class Moon {
     constructor(id, name, size, orbital_period, gravity, description, link, picture, planet_id) {
@@ -25,8 +29,6 @@ function listenForMoonSubmit() {
     });
 }
 
-let chosenMoons = [];
-
 function fetchChosenPlanetMoonData() {
     fetch(`${moonUrl}`)
     .then(function(response) {
@@ -37,8 +39,6 @@ function fetchChosenPlanetMoonData() {
     })
 }
 
-let newMoon;
-
 function createMoon(data) {
     data.map(moon => {
         // console.log(moon)
@@ -48,9 +48,6 @@ function createMoon(data) {
     selectPlanetMoons(chosenMoons);
 }
 
-let selectedMoons = [];
-//let selectedMoonData;
-
 function selectPlanetMoons(chosenMoons) {
     chosenMoons.map(moons => {
         if(moons.planet_id === chosenPlanet.id) {
@@ -59,10 +56,8 @@ function selectPlanetMoons(chosenMoons) {
             }
         })
         clearChosenPlanetPic.remove();
-
         const selectMoonPicsElement = document.getElementById('moon-pics');
         selectMoonPicsElement.innerHTML = `<section id="photos"></section>`;
-
         selectedMoons.forEach(moon => {
             //console.log(moon.id);
             //selectedMoonData = moon.id
@@ -74,12 +69,10 @@ function selectPlanetMoons(chosenMoons) {
     function renderPlanetMoons(moon) {    
         const moonDisplay = document.getElementById('photos') ;   
         const displayMoons = //display moon pics
-        `<img src="${moon.picture}" id="${moon.id}" alt="${moon.name}" height="400px" width="640px">`
+        `<img src="${moon.picture}" id="${moon.id}" alt="${moon.name}" class="img-thumbnail" height="400px" width="640px">`
         
         moonDisplay.innerHTML += displayMoons; 
 }
-
-let selectedMoon;
 
 function selectMoon() {
     const selectFromMoons = document.getElementById('moon-pics')
