@@ -11,7 +11,7 @@ A web application made using the Rails framework as an API for backend and JavaS
 * License
 
 ### Description
-This is a small web application that allows Users to signup and explore our Solar Systems Planets and Moons. 
+This is a single page application that allows Users to signup and explore our Solar Systems Planets and Moons. 
 
 ### Technologies
 This application utilizes the Ruby Programming language and JavaScript while using several gems (listed)
@@ -37,9 +37,6 @@ ruby '2.6.1'
 * gem 'webdrivers'
 * gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 * gem 'bootstrap'
-* gem 'omniauth'
-* gem 'omniauth-facebook'
-* gem 'dotenv-rails'
 
 ### Setup
 * To run this web application you must clone it from git@github.com:jamievullo/Moonlight.git goto https://github.com/jamievullo/Moonlight copy and clone into your terminal.
@@ -47,10 +44,11 @@ ruby '2.6.1'
 * input "cd Moonlight" on command line
 * input "cd backend" on command line
 * Run bundle install from command line
-* Run rails db:migrate from command line
+* Run "rails db:migrate" from command line
+* Run "rails db:seed" from the command line
 * Run rails s from the command line
 * input "cd .." on command line
-* input "cd frontend on command line
+* input "cd frontend" on command line
 * input "open index.html" on command line to open up browser and start program
 * Signup for app by creating a Username.
 * Explore our Solar Systems Planets and their Moons. 
