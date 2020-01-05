@@ -154,8 +154,8 @@ function renderSelectedPlanet(chosenPlanet) { //passes in e.target.previousEleme
                         <p>
                             <div class="description" style="color: white">${chosenPlanet.description}</div>
                             </p>
-                        <button type="submit" id="moon-button">Explore Moons of ${chosenPlanet.name}</button>
-                    </div>
+                                ${renderMoonButton(chosenPlanet)}
+                        </div>
                 </div>
             </li>
         </ul> 
@@ -163,6 +163,14 @@ function renderSelectedPlanet(chosenPlanet) { //passes in e.target.previousEleme
     //<button onclick="window.location.reload()">Reload</button>
     planetElement.innerHTML = selection;
     listenForMoonSubmit();
+}
+
+function renderMoonButton(chosenPlanet) {
+    if(chosenPlanet.has_moons === "true" && chosenPlanet.id !== 3) {
+        return `<button type="submit" id="moon-button">Explore the Moons of ${chosenPlanet.name}</button>`
+    } else if(chosenPlanet.id === 3) {
+        return `<button type="submit" id="moon-button">Explore the Moon of ${chosenPlanet.name}</button>`
+    }
 }
 
 function fetchSelectedPlanetData(planetData, id) {

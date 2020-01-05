@@ -1,5 +1,6 @@
 const moonUrl = `${targetUrl}/moons`;
 const clearChosenPlanetPic = document.getElementById('planet');
+const clearMoonPics = document.getElementById('moon-pics')
 
 class Moon {
     constructor(id, name, size, orbital_period, gravity, description, link, picture, planet_id) {
@@ -36,16 +37,19 @@ function fetchChosenPlanetMoonData() {
     })
 }
 
+let newMoon;
+
 function createMoon(data) {
     data.map(moon => {
         // console.log(moon)
-        let newMoon = new Moon(moon.id, moon.name, moon.size, moon.orbital_period, moon.gravity, moon.description, moon.link, moon.picture, moon.planet_id)
+        newMoon = new Moon(moon.id, moon.name, moon.size, moon.orbital_period, moon.gravity, moon.description, moon.link, moon.picture, moon.planet_id)
         chosenMoons.push(newMoon);
     })
     selectPlanetMoons(chosenMoons);
 }
 
 let selectedMoons = [];
+//let selectedMoonData;
 
 function selectPlanetMoons(chosenMoons) {
     chosenMoons.map(moons => {
@@ -60,29 +64,45 @@ function selectPlanetMoons(chosenMoons) {
         selectMoonPicsElement.innerHTML = `<section id="photos"></section>`;
 
         selectedMoons.forEach(moon => {
-            console.log(moon);
+            //console.log(moon.id);
+            //selectedMoonData = moon.id
             renderPlanetMoons(moon);
         })
         selectMoon();
+    }
+    
+    function renderPlanetMoons(moon) {    
+        const moonDisplay = document.getElementById('photos') ;   
+        const displayMoons = //display moon pics
+        `<img src="${moon.picture}" id="${moon.id}" alt="${moon.name}" height="400px" width="640px">`
+        
+        moonDisplay.innerHTML += displayMoons; 
 }
 
-function renderPlanetMoons(moon) {    
-    const moonDisplay = document.getElementById('photos') ;   
-    const displayMoons = //display moon pics
-    `<img id="${moon.id}" src="${moon.picture}" alt="${moon.name}">`
-
-    moonDisplay.innerHTML += displayMoons; 
-}
+let selectedMoon;
 
 function selectMoon() {
     const selectFromMoons = document.getElementById('moon-pics')
     selectFromMoons.addEventListener('click', e => {
-        console.log(e.target.outerHTML)
-        renderMoon(e.target.outerHTML)
+        fetchSelectedMoonData(e.target.attributes[1].value)
+        selectedMoon = e.target.attributes[0].value
+        //renderMoon(e.target.outerHTML)
     })
 }
 
-function renderMoon(moonPicData) {
+function fetchSelectedMoonData(id) {
+    fetch(`${moonUrl}/${id}`)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data)
+        renderMoon(data)
+    })
+}
+
+function renderMoon(moon) {
+    clearMoonPics.remove();
     const selectMoonElement = document.getElementById('moon');
     const displayMoon = `
     <div class="second-render"></div>
@@ -90,7 +110,7 @@ function renderMoon(moonPicData) {
             <ul class="stage">
                 <li class="scene">
                     <div class="movie">
-                        <div class="planet-animation">${chosenPlanetPicture}</div>
+                        <img class="planet-animation" src="${selectedMoon}" height="400px" width="640px">
                         <div class="info">
                             <header>
                                 <h1>${moon.name}</h1>
@@ -107,12 +127,14 @@ function renderMoon(moonPicData) {
                 </li>
             </ul>
         </div>`;
-    selectMoonElement.innerHTML = displayMoon;    
+    selectMoonElement.innerHTML = displayMoon;
+    //<button onclick="window.location.reload()">Reload</button>    
 }
     
     
 //click on explore moons button which passes in to another function the planet id to retrieve
-//that planets moon/s if any. Add Boolean to planet data for planets that have moons. After passing in id, need to clear selected planet "box"and
+//that planets moon/s if any. Add Boolean to planet data for planets that have moons. After 
+//passing in id, need to clear selected planet "box" and
 //need to render selected planets moons. Then user will be able to select from moon/s, and based
 //on selection, clear the rendered moon/s, and fetch the associated data and render the selection.  
 //Possible "reload/assign" reload button to start the planet selection or moon selection 
