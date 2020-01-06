@@ -2,6 +2,7 @@ const planetUrl = `${targetUrl}/planets`;
 const clearForm = document.getElementById('user-form');
 const clearMainImage = document.getElementById('main-pic');
 const clearWelcomeUserBox = document.getElementById('welcome-user');
+const clearUserFormDiv = document.getElementById('user-form');
 const clearPlanetPics = document.getElementById('planet-pics');
 let chosenPlanetPicture;
 let chosenPlanet;
@@ -133,6 +134,7 @@ function fetchPlanetData(id) {
 function renderSelectedPlanet(chosenPlanet) { //passes in e.target.previousElementSibling.outerHTML
     clearPlanetPics.remove();
     clearWelcomeUserBox.remove();
+    clearUserFormDiv.remove();
     const planetElement = document.getElementById('planet');
     const selection = `
     <div class="second-render"></div>

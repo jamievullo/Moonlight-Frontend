@@ -1,5 +1,6 @@
 const moonUrl = `${targetUrl}/moons`;
 const clearChosenPlanetPic = document.getElementById('planet');
+const clearPlanetAttributesDiv = document.getElementById('planet-attributes');
 const clearMoonPics = document.querySelector('.moon-row');
 let selectedMoon;
 let chosenMoons = [];
@@ -56,6 +57,7 @@ function selectPlanetMoons(chosenMoons) {
             }
         })
         clearChosenPlanetPic.remove();
+        clearPlanetAttributesDiv.remove();
         // const selectMoonPicsElement = document.getElementById('moon-pics');
         // selectMoonPicsElement.innerHTML = `<section id="photos"></section>`;
         selectedMoons.forEach(moon => {
@@ -66,23 +68,28 @@ function selectPlanetMoons(chosenMoons) {
         selectMoon();
     }
     
-    function renderPlanetMoons(moon) {    
-        const moonDisplay = document.querySelector('.moon-row') ;   
-        const displayMoons = //display moon pics
-        `<img src="${moon.picture}" id="${moon.id}" alt="${moon.name}">`;
-        
-        moonDisplay.innerHTML += displayMoons; 
+function renderPlanetMoons(moon) {    
+    const moonDisplay = document.querySelector('.moon-row') ;   
+    const displayMoons = //display moon pics
+    `
+    <img class="super-moon" src="${moon.picture}" id="${moon.id}" alt="${moon.name}">
+    `;
+    
+    moonDisplay.innerHTML += displayMoons; 
+    
 }
 
 function selectMoon() {
-    const selectFromMoons = document.querySelector('.moon-row')
-    selectFromMoons.addEventListener('click', e => {
-        // console.log(e)
+    const selectFromMoons = document.querySelectorAll('.super-moon')
+    selectFromMoons.forEach(moon => {
+    moon.addEventListener('click', e => {
+        //console.log(e)
         // console.log(e.target.attributes[1].value)
         // console.log(e.target.attributes[0].value)
-        fetchSelectedMoonData(e.target.attributes[1].value)
-        selectedMoon = e.target.attributes[0].value
+        fetchSelectedMoonData(e.target.attributes[2].value)
+        selectedMoon = e.target.attributes[1].value
         //renderMoon(e.target.outerHTML)
+        })
     })
 }
 
