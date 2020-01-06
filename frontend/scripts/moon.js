@@ -1,6 +1,6 @@
 const moonUrl = `${targetUrl}/moons`;
 const clearChosenPlanetPic = document.getElementById('planet');
-const clearMoonPics = document.getElementById('moon-pics');
+const clearMoonPics = document.querySelector('.moon-row');
 let selectedMoon;
 let chosenMoons = [];
 let newMoon;
@@ -56,8 +56,8 @@ function selectPlanetMoons(chosenMoons) {
             }
         })
         clearChosenPlanetPic.remove();
-        const selectMoonPicsElement = document.getElementById('moon-pics');
-        selectMoonPicsElement.innerHTML = `<section id="photos"></section>`;
+        // const selectMoonPicsElement = document.getElementById('moon-pics');
+        // selectMoonPicsElement.innerHTML = `<section id="photos"></section>`;
         selectedMoons.forEach(moon => {
             //console.log(moon.id);
             //selectedMoonData = moon.id
@@ -67,16 +67,19 @@ function selectPlanetMoons(chosenMoons) {
     }
     
     function renderPlanetMoons(moon) {    
-        const moonDisplay = document.getElementById('photos') ;   
+        const moonDisplay = document.querySelector('.moon-row') ;   
         const displayMoons = //display moon pics
-        `<img src="${moon.picture}" id="${moon.id}" alt="${moon.name}" class="img-thumbnail" height="400px" width="640px">`
+        `<img src="${moon.picture}" id="${moon.id}" alt="${moon.name}">`;
         
         moonDisplay.innerHTML += displayMoons; 
 }
 
 function selectMoon() {
-    const selectFromMoons = document.getElementById('moon-pics')
+    const selectFromMoons = document.querySelector('.moon-row')
     selectFromMoons.addEventListener('click', e => {
+        // console.log(e)
+        // console.log(e.target.attributes[1].value)
+        // console.log(e.target.attributes[0].value)
         fetchSelectedMoonData(e.target.attributes[1].value)
         selectedMoon = e.target.attributes[0].value
         //renderMoon(e.target.outerHTML)

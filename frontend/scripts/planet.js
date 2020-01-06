@@ -27,7 +27,7 @@ function renderPlanets() {
 				<a href="#">Venus</a>
 			</div>
 			<a href="#">
-				<img class="planet-picture" id="2" src="images/Planets/Venus-Main3.jpg" alt="Venus">
+				<img class="planet-picture" id="2" src="images/Planets/Venus-Main.jpg" alt="Venus">
 			</a>
 		</li>
         <li>
@@ -51,7 +51,7 @@ function renderPlanets() {
 				<a href="#">Jupiter</a>
 			</div>
 			<a href="#">
-				<img class="planet-picture" id="5" src="images/Planets/Jupiter-Main.jpg" alt="Jupiter">
+				<img class="planet-picture" id="5" src="images/Planets/Jupiter-Main5.jpg" alt="Jupiter">
 			</a>
 		</li>
         <li>
