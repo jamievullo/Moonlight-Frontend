@@ -31,11 +31,12 @@ function listenForMoonSubmit() {
 }
 
 function fetchChosenPlanetMoonData() {
-    fetch(`${moonUrl}`)
+    fetch(`${targetUrl}/planets/${chosenPlanet.id}/moons`)
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
+        console.log(data)
         createMoon(data);       
     })
 }
