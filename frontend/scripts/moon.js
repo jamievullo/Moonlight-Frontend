@@ -59,8 +59,7 @@ function selectPlanetMoons(chosenMoons) {
         })
         clearChosenPlanetPic.remove();
         clearPlanetAttributesDiv.remove();
-        // const selectMoonPicsElement = document.getElementById('moon-pics');
-        // selectMoonPicsElement.innerHTML = `<section id="photos"></section>`;
+        
         selectedMoons.forEach(moon => {
             //console.log(moon.id);
             //selectedMoonData = moon.id
