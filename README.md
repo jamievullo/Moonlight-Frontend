@@ -58,6 +58,8 @@ ruby '2.6.1'
 * https://rubygems.org
 * https://stackoverflow.com x 1000 ;)
 * https://css-tricks.com
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript
+* https://www.w3schools.com/js/default.asp
 
 ### License
 * MIT License
