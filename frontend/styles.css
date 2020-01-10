@@ -224,7 +224,10 @@ body {
 /* Rendering Planet-Moons */
 #moon-instructions {
     color: white;
+    /* margin-top: 2%;
+    margin-bottom: 2%; */
 }
+
 #moon-pics {
     background-color: black;
     display: flex;
@@ -248,17 +251,3 @@ body {
     width: 33%;
     /* margin: auto; */
 }
-
-/* @media screen and (max-width: 800px) {
-    .column {
-        flex: 50%;
-        max-width: 50%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .column {
-        flex: 100%;
-        max-width: 100%;
-    }
-} */
