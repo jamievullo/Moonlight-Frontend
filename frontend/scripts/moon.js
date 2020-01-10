@@ -63,13 +63,21 @@ function selectPlanetMoons(chosenMoons) {
         selectedMoons.forEach(moon => {
             //console.log(moon.id);
             //selectedMoonData = moon.id
+            renderPlanetMoonsInstructions();
             renderPlanetMoons(moon);
         })
         selectMoon();
     }
-    
-function renderPlanetMoons(moon) {    
-    const moonDisplay = document.querySelector('.moon-row') ;   
+function renderPlanetMoonsInstructions() {
+    const moonInstructions = document.getElementById('moon-instructions')
+    const moonInstructionsDisplay = // display instructions for selecting a moon
+    `<h2><center>Please select a moon for more information by clicking on its image</center></h2>`;
+
+    moonInstructions.innerHTML = moonInstructionsDisplay;
+}
+
+function renderPlanetMoons(moon) {   
+    const moonDisplay = document.querySelector('.moon-row') ;
     const displayMoons = //display moon pics
     `
     <img class="super-moon" src="${moon.picture}" id="${moon.id}" alt="${moon.name}">

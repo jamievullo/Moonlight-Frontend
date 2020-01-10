@@ -7,6 +7,21 @@ const clearPlanetPics = document.getElementById('planet-pics');
 let chosenPlanetPicture;
 let chosenPlanet;
 
+class Planet {
+    constructor(id, name, size, distance, orbital_period, day_length, gravity, description, link, has_moons) {
+    this.id = id
+    this.name = name
+    this.size = size
+    this.distance = distance
+    this.orbital_period = orbital_period
+    this.day_length = day_length
+    this.gravity = gravity
+    this.description = description
+    this.link = link
+    this.has_moons = has_moons
+    }
+}
+
 function renderPlanets() {
     //clear form and main image
     clearForm.innerHTML = "";
@@ -186,18 +201,3 @@ function fetchSelectedPlanetData(planetData, id) {
         renderSelectedPlanet(chosenPlanet);
     })
 } 
-
-class Planet {
-    constructor(id, name, size, distance, orbital_period, day_length, gravity, description, link, has_moons) {
-    this.id = id
-    this.name = name
-    this.size = size
-    this.distance = distance
-    this.orbital_period = orbital_period
-    this.day_length = day_length
-    this.gravity = gravity
-    this.description = description
-    this.link = link
-    this.has_moons = has_moons
-    }
-}
