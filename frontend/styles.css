@@ -8,7 +8,7 @@ body {
 }
 
 .jumbotron {
-    background-color: rgb(92, 92, 134);
+    background-color: rgb(56, 56, 73);
     margin-bottom: 0px;
     border-radius: 0em;
 }
@@ -224,6 +224,7 @@ body {
 /* Rendering Planet-Moons */
 #moon-instructions {
     color: white;
+    background-color: rgb(56, 56, 73);
     /* margin-top: 2%;
     margin-bottom: 2%; */
 }
