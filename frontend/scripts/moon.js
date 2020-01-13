@@ -32,6 +32,7 @@ function listenForMoonSubmit() {
 }
 
 function fetchChosenPlanetMoonData() {
+    //keeping routes restful using the planet id for moon rendering
     fetch(`${targetUrl}/planets/${chosenPlanet.id}/moons`)
     .then(function(response) {
         return response.json();
@@ -73,7 +74,7 @@ function selectPlanetMoons(chosenMoons) {
 function renderPlanetMoonsInstructions() {
     const moonInstructions = document.getElementById('moon-instructions')
     const moonInstructionsDisplay = // display instructions for selecting a moon
-    `<h2><center>Please select a moon for more information by clicking on its image</center></h2>`;
+    `<h2><center>${user.name}, select a moon for more information by clicking on its image</center></h2>`;
 
     moonInstructions.innerHTML = moonInstructionsDisplay;
 }

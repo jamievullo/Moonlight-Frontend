@@ -1,5 +1,6 @@
 const targetUrl = "http://localhost:3000"
 const userUrl = `${targetUrl}/users`
+let user;
 
 document.addEventListener('DOMContentLoaded', function() {
     //after content loads fire userForm() function and load form.
@@ -44,7 +45,7 @@ function listenForSubmit() {
 }
 
 function postUser(name) {
-    let user = {
+        user = {
         name: `${name}`
     };
     let configObject = {
