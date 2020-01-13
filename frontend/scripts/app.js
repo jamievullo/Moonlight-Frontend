@@ -1,5 +1,5 @@
-const targetUrl = "http://localhost:3000"
-let user;
+    const targetUrl = "http://localhost:3000"
+    let user;
 
 document.addEventListener('DOMContentLoaded', function() {
     //after content loads fire userForm() function and load form.

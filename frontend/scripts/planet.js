@@ -1,5 +1,5 @@
-let chosenPlanetPicture;
 let chosenPlanet;
+let chosenPlanetPicture;
 
 class Planet {
     constructor(id, name, size, distance, orbital_period, day_length, gravity, description, link, has_moons) {
@@ -171,44 +171,6 @@ function selectPlanet() {
     })    
 }
 
-// function renderSelectedPlanet(chosenPlanet) { //passes in e.target.previousElementSibling.outerHTML
-//     const clearWelcomeUserBox = document.getElementById('welcome-user');
-//     const clearUserFormDiv = document.getElementById('user-form');
-//     const clearPlanetPics = document.getElementById('planet-pics');
-//     clearPlanetPics.remove();
-//     clearWelcomeUserBox.remove();
-//     clearUserFormDiv.remove();
-//     const planetElement = document.getElementById('planet');
-//     const selection = `
-//     <div class="second-render"></div>
-//         <div class="wrapper">
-//             <ul class="stage">
-//                 <li class="scene">
-//                     <div class="movie">
-//                         <div class="planet-animation">${chosenPlanetPicture}</div>
-//                         <div class="info">
-//                         <header>
-//                             <h1>${chosenPlanet.name}</h1>
-//                             <div class="size">Size: ${chosenPlanet.size}</div>
-//                             <div class="distance">Distance from Sun: ${chosenPlanet.distance}</div>
-//                             <div class="orbital-period">Orbital Period: ${chosenPlanet.orbital_period}</div>
-//                             <div class="day-length">Day Length: ${chosenPlanet.day_length}</div>
-//                             <div class="gravity">Gravity: ${chosenPlanet.gravity}</div>
-//                             <a href="${chosenPlanet.link}"/target="_blank">${chosenPlanet.link}</a>
-//                         </header>
-//                         <p>
-//                             <div class="description" style="color: white">${chosenPlanet.description}</div>
-//                             </p>
-//                                 ${renderMoonButton(chosenPlanet)}
-//                         </div>
-//                 </div>
-//             </li>
-//         </ul> 
-//     </div>`;
-//     //<button onclick="window.location.reload()">Reload</button>
-//     planetElement.innerHTML = selection;
-//     listenForMoonSubmit();
-// }
 
 function renderMoonButton(chosenPlanet) {
     if(chosenPlanet.has_moons === "true" && chosenPlanet.id !== 3) {
