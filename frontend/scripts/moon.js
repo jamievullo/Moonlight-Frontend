@@ -15,6 +15,51 @@ class Moon {
     this.picture = picture
     this.planet_id = planet_id
     }
+
+    renderPlanetMoons(moon) {   
+        const moonDisplay = document.querySelector('.moon-row') ;
+        const displayMoons = //display moon pics
+        `
+        <img class="super-moon" src="${this.picture}" id="${this.id}" alt="${this.name}">
+        `;
+        
+        moonDisplay.innerHTML += displayMoons;         
+    }
+
+    static renderMoon(moon) {
+        //debugger
+        const clearMoonPics = document.querySelector('.moon-row');
+        const clearMoonInstructionsDisplay = document.getElementById('moon-instructions')
+        clearMoonInstructionsDisplay.remove();
+        clearMoonPics.remove();
+        const selectMoonElement = document.getElementById('moon');
+        const displayMoon = `
+        <div class="second-render"></div>
+            <div class="wrapper">
+                <ul class="stage">
+                    <li class="scene">
+                        <div class="movie">
+                            <img class="planet-animation" src="${selectedMoon}" height="400px" width="640px">
+                            <div class="info">
+                                <header>
+                                    <h1>${moon.name}</h1>
+                                    <div class="size">Size: ${moon.size}</div>
+                                        <div class="orbital-period">Orbital Period: ${moon.orbital_period}</div>
+                                        <div class="gravity">Gravity: ${moon.gravity}</div>
+                                        <a href="${moon.link}"/target="_blank">${moon.link}</a>
+                                </header>
+                                <p>
+                                    <div class="description" style="color: white">${moon.description}</div>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>`;
+        selectMoonElement.innerHTML = displayMoon;
+        //<button onclick="window.location.reload()">Reload</button>    
+    }
+
 }
 
 function listenForMoonSubmit() {
@@ -33,7 +78,7 @@ function fetchChosenPlanetMoonData() {
         return response.json();
     })
     .then(function(data) {
-        console.log(data)
+        //console.log(data)
         createMoon(data);       
     })
 }
@@ -63,7 +108,7 @@ function selectPlanetMoons(chosenMoons) {
             //console.log(moon.id);
             //selectedMoonData = moon.id
             renderPlanetMoonsInstructions();
-            renderPlanetMoons(moon);
+            moon.renderPlanetMoons(moon);
         })
         selectMoon();
     }
@@ -74,17 +119,6 @@ function renderPlanetMoonsInstructions() {
     `<h2><center>${user.name}, select a moon for more information by clicking on its image</center></h2>`;
 
     moonInstructions.innerHTML = moonInstructionsDisplay;
-}
-
-function renderPlanetMoons(moon) {   
-    const moonDisplay = document.querySelector('.moon-row') ;
-    const displayMoons = //display moon pics
-    `
-    <img class="super-moon" src="${moon.picture}" id="${moon.id}" alt="${moon.name}">
-    `;
-    
-    moonDisplay.innerHTML += displayMoons; 
-    
 }
 
 function selectMoon() {
@@ -107,42 +141,9 @@ function fetchSelectedMoonData(id) {
         return response.json();
     })
     .then(function(data) {
-        console.log(data)
-        renderMoon(data)
+        //console.log(data)
+        Moon.renderMoon(data)
     })
-}
-
-function renderMoon(moon) {
-    const clearMoonPics = document.querySelector('.moon-row');
-    const clearMoonInstructionsDisplay = document.getElementById('moon-instructions')
-    clearMoonInstructionsDisplay.remove();
-    clearMoonPics.remove();
-    const selectMoonElement = document.getElementById('moon');
-    const displayMoon = `
-    <div class="second-render"></div>
-        <div class="wrapper">
-            <ul class="stage">
-                <li class="scene">
-                    <div class="movie">
-                        <img class="planet-animation" src="${selectedMoon}" height="400px" width="640px">
-                        <div class="info">
-                            <header>
-                                <h1>${moon.name}</h1>
-                                <div class="size">Size: ${moon.size}</div>
-                                    <div class="orbital-period">Orbital Period: ${moon.orbital_period}</div>
-                                    <div class="gravity">Gravity: ${moon.gravity}</div>
-                                    <a href="${moon.link}"/target="_blank">${moon.link}</a>
-                            </header>
-                            <p>
-                                <div class="description" style="color: white">${moon.description}</div>
-                            </p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>`;
-    selectMoonElement.innerHTML = displayMoon;
-    //<button onclick="window.location.reload()">Reload</button>    
 }
     
     
