@@ -1,5 +1,4 @@
 const targetUrl = "http://localhost:3000"
-const userUrl = `${targetUrl}/users`
 let user;
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -57,7 +56,7 @@ function postUser(name) {
     body: JSON.stringify(user)  //data being sent in fetch() needs to be stored in the
                                 //"body" of the configObj and converted to a string
     };
-    fetch(userUrl, configObject) //destination url and object passed into fetch function.
+    fetch(`${targetUrl}/users`, configObject) //destination url and object passed into fetch function.
     .then(function(response) { //fn passed response object representing what server sends back
         return response.json(); //json()method converts JSON to JS object.
     })

@@ -1,8 +1,3 @@
-const moonUrl = `${targetUrl}/moons`;
-const clearChosenPlanetPic = document.getElementById('planet');
-const clearPlanetAttributesDiv = document.getElementById('planet-attributes');
-const clearMoonPics = document.querySelector('.moon-row');
-const clearMoonInstructionsDisplay = document.getElementById('moon-instructions')
 let selectedMoon;
 let chosenMoons = [];
 let newMoon;
@@ -59,6 +54,8 @@ function selectPlanetMoons(chosenMoons) {
             selectedMoons.push(moons);
             }
         })
+        const clearChosenPlanetPic = document.getElementById('planet');
+        const clearPlanetAttributesDiv = document.getElementById('planet-attributes');
         clearChosenPlanetPic.remove();
         clearPlanetAttributesDiv.remove();
         
@@ -105,7 +102,7 @@ function selectMoon() {
 }
 
 function fetchSelectedMoonData(id) {
-    fetch(`${moonUrl}/${id}`)
+    fetch(`${targetUrl}/moons/${id}`)
     .then(function(response) {
         return response.json();
     })
@@ -116,6 +113,8 @@ function fetchSelectedMoonData(id) {
 }
 
 function renderMoon(moon) {
+    const clearMoonPics = document.querySelector('.moon-row');
+    const clearMoonInstructionsDisplay = document.getElementById('moon-instructions')
     clearMoonInstructionsDisplay.remove();
     clearMoonPics.remove();
     const selectMoonElement = document.getElementById('moon');

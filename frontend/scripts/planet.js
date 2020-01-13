@@ -1,9 +1,3 @@
-const planetUrl = `${targetUrl}/planets`;
-const clearForm = document.getElementById('user-form');
-const clearMainImage = document.getElementById('main-pic');
-const clearWelcomeUserBox = document.getElementById('welcome-user');
-const clearUserFormDiv = document.getElementById('user-form');
-const clearPlanetPics = document.getElementById('planet-pics');
 let chosenPlanetPicture;
 let chosenPlanet;
 
@@ -23,6 +17,8 @@ class Planet {
 }
 
 function renderPlanets() {
+    const clearForm = document.getElementById('user-form');
+    const clearMainImage = document.getElementById('main-pic');
     //clear form and main image
     clearForm.innerHTML = "";
     clearMainImage.remove();
@@ -130,23 +126,15 @@ function selectPlanet() {
             //console.log(e)
             //console.log(e.target.outerHTML);
             //console.log(e.toElement.id)
-            fetchPlanetData(e.toElement.id);//gets pic id from selected planet to compare to DB id to render planets data
+            fetchSelectedPlanetData(e.toElement.id);//gets pic id from selected planet to compare to DB id to render planets data
         })
     })    
 }
 
-function fetchPlanetData(id) {
-    fetch(planetUrl)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        //console.log(data);
-        fetchSelectedPlanetData(data, id);
-    })
-}    
-
 function renderSelectedPlanet(chosenPlanet) { //passes in e.target.previousElementSibling.outerHTML
+    const clearWelcomeUserBox = document.getElementById('welcome-user');
+    const clearUserFormDiv = document.getElementById('user-form');
+    const clearPlanetPics = document.getElementById('planet-pics');
     clearPlanetPics.remove();
     clearWelcomeUserBox.remove();
     clearUserFormDiv.remove();
@@ -190,8 +178,8 @@ function renderMoonButton(chosenPlanet) {
     }
 }
 
-function fetchSelectedPlanetData(planetData, id) {
-    fetch(`${planetUrl}/${id}`)
+function fetchSelectedPlanetData(id) {
+    fetch(`${targetUrl}/planets/${id}`)
     .then(function(response) {
         return response.json();
     })
@@ -200,4 +188,4 @@ function fetchSelectedPlanetData(planetData, id) {
         //console.log(chosenPlanet)
         renderSelectedPlanet(chosenPlanet);
     })
-} 
+}
