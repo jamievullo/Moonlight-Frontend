@@ -81,6 +81,7 @@ function fetchChosenPlanetMoonData() {
         //console.log(data)
         createMoon(data);       
     })
+    .catch(err => alert(err.message))
 }
 
 function createMoon(data) {
@@ -144,6 +145,7 @@ function fetchSelectedMoonData(id) {
         //console.log(data)
         Moon.renderMoon(data)
     })
+    .catch(err => alert(err.message))
 }
     
     

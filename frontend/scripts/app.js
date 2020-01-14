@@ -66,7 +66,8 @@ function postUser(name) {
         //renders users inputted name on render planets page
         welcomeUser(data.name)
         //setTimeout(welcomeUser.bind(null, data.name), 300);
-    });
+    })
+    .catch(err => alert(err.message))
     //after saving userName to database render planets to select from.
     Planet.renderPlanets();
     //setTimeout(renderPlanets, 300);

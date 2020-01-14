@@ -190,4 +190,5 @@ function fetchSelectedPlanetData(id) {
         //console.log(chosenPlanet)
         Planet.renderSelectedPlanet(chosenPlanet);
     })
+    .catch(err => alert(err.message))
 }
