@@ -51,15 +51,24 @@ class Moon {
                                 <p>
                                     <div class="description" style="color: white">${moon.description}</div>
                                 </p>
+                                <button type="submit" id="back-button">Go back to Planets</button>                                
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>`;
         selectMoonElement.innerHTML = displayMoon;
-        //<button onclick="window.location.reload()">Reload</button>    
+        listenForGoBackToPlanets();   
     }
+}
 
+function listenForGoBackToPlanets() {
+    const goBack = document.getElementById('back-button');
+    goBack.addEventListener('click', e => {
+        // console.log(chosenPlanet.id);
+        console.log(e);
+        Planet.renderPlanets()
+    });
 }
 
 function listenForMoonSubmit() {
@@ -147,7 +156,8 @@ function fetchSelectedMoonData(id) {
     })
     .catch(err => alert(err.message))
 }
-    
+
+
     
 //click on explore moons button which passes in to another function the planet id to retrieve
 //that planets moon/s if any. Add Boolean to planet data for planets that have moons. After 

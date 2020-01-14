@@ -69,6 +69,7 @@ function postUser(name) {
     })
     .catch(err => alert(err.message))
     //after saving userName to database render planets to select from.
+    clearFormAndMainImage()
     Planet.renderPlanets();
     //setTimeout(renderPlanets, 300);
 }

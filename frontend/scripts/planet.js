@@ -15,13 +15,17 @@ class Planet {
     this.has_moons = has_moons
     }
 
+
     static renderPlanets() {
-        const clearForm = document.getElementById('user-form');
-        const clearMainImage = document.getElementById('main-pic');
-        //clear form and main image
-        clearForm.innerHTML = "";
-        clearMainImage.remove();
-        const selectPicElement = document.getElementById('planet-pics');
+        // const clearForm = document.getElementById('user-form');
+        // const clearMainImage = document.getElementById('main-pic');
+        // //clear form and main image
+        // clearForm.innerHTML = "";
+        // clearMainImage.remove();
+        //const selectPicElement = document.getElementById('planet-pics');
+        const planetPicsDiv = document.createElement('div')
+        planetPicsDiv.setAttribute('id', 'planet-pics')
+        document.getElementById('planet-pics-mama').appendChild(planetPicsDiv)
         const loadPlanetPics = `
         <div class="accordian">
         <ul>
@@ -100,18 +104,24 @@ class Planet {
         </ul>
     </div>`;
         //render planets
-        selectPicElement.innerHTML = loadPlanetPics;
+        //selectPicElement.innerHTML = loadPlanetPics;
+        planetPicsDiv.innerHTML = loadPlanetPics;
+        //debugger
+        selectPlanet();
     }
 
     static renderSelectedPlanet(chosenPlanet) { //passes in e.target.previousElementSibling.outerHTML
         //debugger
-        const clearWelcomeUserBox = document.getElementById('welcome-user');
-        const clearUserFormDiv = document.getElementById('user-form');
-        const clearPlanetPics = document.getElementById('planet-pics');
-        clearPlanetPics.remove();
-        clearWelcomeUserBox.remove();
-        clearUserFormDiv.remove();
-        const planetElement = document.getElementById('planet');
+        // const clearWelcomeUserBox = document.getElementById('welcome-user');
+        // const clearUserFormDiv = document.getElementById('user-form');
+        // const clearPlanetPics = document.getElementById('planet-pics');
+        // clearPlanetPics.remove();
+        // clearWelcomeUserBox.remove();
+        // clearUserFormDiv.remove();
+        const planetPicDiv = document.createElement('div')
+        planetPicDiv.setAttribute('id', 'planet')
+        document.getElementById('planet-mama').appendChild(planetPicDiv)
+        //const planetElement = document.getElementById('planet-mama');
         const selection = `
         <div class="second-render"></div>
             <div class="wrapper">
@@ -139,9 +149,27 @@ class Planet {
             </ul> 
         </div>`;
         //<button onclick="window.location.reload()">Reload</button>
-        planetElement.innerHTML = selection;
+        //planetElement.innerHTML = selection;
+        planetPicDiv.innerHTML = selection
         listenForMoonSubmit();
     }
+}
+
+function clearFormAndMainImage() {
+    const clearForm = document.getElementById('user-form');
+    const clearMainImage = document.getElementById('main-pic');
+    //clear form and main image
+    clearForm.innerHTML = "";
+    clearMainImage.remove();
+}
+
+function clearWelcomeUserAndPlanetPics() {
+    const clearWelcomeUserBox = document.getElementById('welcome-user');
+    const clearUserFormDiv = document.getElementById('user-form');
+    const clearPlanetPics = document.getElementById('planet-pics');
+    clearPlanetPics.remove();
+    clearWelcomeUserBox.remove();
+    clearUserFormDiv.remove();
 }
 
 function welcomeUser(name) {
@@ -188,6 +216,7 @@ function fetchSelectedPlanetData(id) {
     .then(function(data) {
         chosenPlanet = new Planet(data.id, data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link, data.has_moons)
         //console.log(chosenPlanet)
+        clearWelcomeUserAndPlanetPics()
         Planet.renderSelectedPlanet(chosenPlanet);
     })
     .catch(err => alert(err.message))
