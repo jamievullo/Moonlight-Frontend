@@ -1,7 +1,7 @@
-    const targetUrl = "http://localhost:3000"
-    let user;
+const targetUrl = "http://localhost:3000"
+let user;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     //after content loads fire userForm() function and load form.
     //listenForSubmit() listens for submit event and 
     //sets userName to value submitted on form.
@@ -44,30 +44,30 @@ function listenForSubmit() {
 }
 
 function postUser(name) {
-        user = {
+    user = {
         name: `${name}`
     };
     let configObject = {
-        method: "POST",  //telling fetch() that this is a post request.
-        headers: {    //metadata of actual data in key/value pairs
-        "Content-Type": "application/json", //what format data being sent is in. 
-        "Accept": "application/json"  //tells server we accept data in this format for response.
-    },
-    body: JSON.stringify(user)  //data being sent in fetch() needs to be stored in the
-                                //"body" of the configObj and converted to a string
+        method: "POST", //telling fetch() that this is a post request.
+        headers: { //metadata of actual data in key/value pairs
+            "Content-Type": "application/json", //what format data being sent is in. 
+            "Accept": "application/json" //tells server we accept data in this format for response.
+        },
+        body: JSON.stringify(user) //data being sent in fetch() needs to be stored in the
+        //"body" of the configObj and converted to a string
     };
     fetch(`${targetUrl}/users`, configObject) //destination url and object passed into fetch function.
-    .then(function(response) { //fn passed response object representing what server sends back
-        return response.json(); //json()method converts JSON to JS object.
-    })
-    .then(function(data) {
-        //setUsers(data)
-        //console.log(data.name)
-        //renders users inputted name on render planets page
-        welcomeUser(data.name)
-        //setTimeout(welcomeUser.bind(null, data.name), 300);
-    })
-    .catch(err => alert(err.message))
+        .then(function (response) { //fn passed response object representing what server sends back
+            return response.json(); //json()method converts JSON to JS object.
+        })
+        .then(function (data) {
+            //setUsers(data)
+            //console.log(data.name)
+            //renders users inputted name on render planets page
+            welcomeUser(data.name)
+            //setTimeout(welcomeUser.bind(null, data.name), 300);
+        })
+        .catch(err => alert(err.message))
     //after saving userName to database render planets to select from.
     Planet.renderPlanets();
     //setTimeout(renderPlanets, 300);
