@@ -167,7 +167,7 @@ function fetchSelectedPlanetData(id) {
             return response.json();
         })
         .then(function (data) {
-            chosenPlanet = new Planet(data.id, data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link, data.has_moons)
+            chosenPlanet = new Planet(data.id, data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link, data.has_moons, data.picture)
             //console.log(chosenPlanet)
             Planet.renderSelectedPlanet(chosenPlanet);
         })
