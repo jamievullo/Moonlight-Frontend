@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //sets userName to value submitted on form.
     userForm();
     listenForSubmit();
+    
 });
 
 //creates form for userName to be persisted to database and welcomes user.
@@ -69,6 +70,8 @@ function postUser(name) {
         })
         .catch(err => alert(err.message))
     //after saving userName to database render planets to select from.
-    Planet.renderPlanets();
+    clearFormAndMainImage();
+    // fetchAllPlanets();
+    //Planet.renderPlanets();
     //setTimeout(renderPlanets, 300);
 }

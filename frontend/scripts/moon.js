@@ -69,7 +69,7 @@ function listenForGoBackToPlanets() {
     goBack.addEventListener('click', e => {
         // console.log(chosenPlanet.id);
         console.log(e);
-        rerenderPlanets()
+        Planet.rerenderPlanets()
     });
 }
 
@@ -163,104 +163,104 @@ function fetchSelectedMoonData(id) {
     .catch(err => alert(err.message))
 }
 
-function rerenderPlanets() {
-    //recreates planet accordian and appends to body of HTML after clearing of all elements in functions
-    const snippet = `
-    <div id="user-form"></div>
-    <div id="welcome-user"><div class="welcome"><h2 style="color: white"><center>Welcome ${user.name}, please select a Planet 
-    by clicking on a tile.</center></h2></div></div>
-    <div id="planet-pics">
-        <div class="accordian">
-            <ul>
-                <li>
-                    <div class="image_title">
-                        <a href="#">Mercury</a>
-                    </div>
-                    <a href="#">
-                        <img class="planet-picture" id="1" src="images/Planets/Mercury-Colored1.jpg" alt="Mercury">
-                    </a>
-                </li>
-                <li>
-                    <div class="image_title">
-                        <a href="#">Venus</a>
-                    </div>
-                    <a href="#">
-                        <img class="planet-picture" id="2" src="images/Planets/Venus-Main.jpg" alt="Venus">
-                    </a>
-                </li>
-                <li>
-                    <div class="image_title">
-                        <a href="#">Earth</a>
-                    </div>
-                    <a href="#">
-                        <img class="planet-picture" id="3" src="images/Planets/Earth-Main2.jpg" alt="Earth">
-                    </a>
-                </li>
-                <li>
-                    <div class="image_title">
-                        <a href="#">Mars</a>
-                    </div>
-                    <a href="#">
-                        <img class="planet-picture" id="4" src="images/Planets/Mars-Main6.jpg" alt="Mars">
-                    </a>
-                </li>
-                <li>
-                    <div class="image_title">
-                        <a href="#">Jupiter</a>
-                    </div>
-                    <a href="#">
-                        <img class="planet-picture" id="5" src="images/Planets/Jupiter-Main5.jpg" alt="Jupiter">
-                    </a>
-                </li>
-                <li>
-                    <div class="image_title">
-                        <a href="#">Saturn</a>
-                    </div>
-                    <a href="#">
-                        <img class="planet-picture" id="6" src="images/Planets/Saturn-Main-Main2.jpeg" alt="Saturn"> 
-                    </a>
-                </li>
-                <li>
-                    <div class="image_title">
-                        <a href="#">Uranus</a>
-                    </div>
-                    <a href="#">
-                        <img class="planet-picture" id="7" src="images/Planets/Uranus-Main2.jpg" alt="Uranus">
-                    </a>
-                </li>
-                <li>
-                    <div class="image_title">
-                        <a href="#">Neptune</a>
-                    </div>
-                    <a href="#">
-                        <img class="planet-picture" id="8" src="images/Planets/Neptune-Main.jpg" alt="Neptune">
-                    </a>
-                </li>
-                <li>
-                    <div class="image_title">
-                        <a href="#">Pluto</a>
-                    </div>
-                    <a href="#">
-                        <img class="planet-picture" id="9" src="images/Planets/Pluto-Main.jpg" alt="Pluto">
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div id="planet"></div>
-    <div id="planet-attributes"></div>
-    <div id="moon-instructions"></div>
-    <div id="moon-pics">
-        <div class="moon-row"></div>
-    </div>
-    <div id="moon"></div>
-    <div id="moon-attributes"></div>
-    `
+// function rerenderPlanets() {
+//     //recreates planet accordian and appends to body of HTML after clearing of all elements in functions
+//     const snippet = `
+//     <div id="user-form"></div>
+//     <div id="welcome-user"><div class="welcome"><h2 style="color: white"><center>Welcome ${user.name}, please select a Planet 
+//     by clicking on a tile.</center></h2></div></div>
+//     <div id="planet-pics">
+//         <div class="accordian">
+//             <ul>
+//                 <li>
+//                     <div class="image_title">
+//                         <a href="#">Mercury</a>
+//                     </div>
+//                     <a href="#">
+//                         <img class="planet-picture" id="1" src="images/Planets/Mercury-Colored1.jpg" alt="Mercury">
+//                     </a>
+//                 </li>
+//                 <li>
+//                     <div class="image_title">
+//                         <a href="#">Venus</a>
+//                     </div>
+//                     <a href="#">
+//                         <img class="planet-picture" id="2" src="images/Planets/Venus-Main.jpg" alt="Venus">
+//                     </a>
+//                 </li>
+//                 <li>
+//                     <div class="image_title">
+//                         <a href="#">Earth</a>
+//                     </div>
+//                     <a href="#">
+//                         <img class="planet-picture" id="3" src="images/Planets/Earth-Main2.jpg" alt="Earth">
+//                     </a>
+//                 </li>
+//                 <li>
+//                     <div class="image_title">
+//                         <a href="#">Mars</a>
+//                     </div>
+//                     <a href="#">
+//                         <img class="planet-picture" id="4" src="images/Planets/Mars-Main6.jpg" alt="Mars">
+//                     </a>
+//                 </li>
+//                 <li>
+//                     <div class="image_title">
+//                         <a href="#">Jupiter</a>
+//                     </div>
+//                     <a href="#">
+//                         <img class="planet-picture" id="5" src="images/Planets/Jupiter-Main5.jpg" alt="Jupiter">
+//                     </a>
+//                 </li>
+//                 <li>
+//                     <div class="image_title">
+//                         <a href="#">Saturn</a>
+//                     </div>
+//                     <a href="#">
+//                         <img class="planet-picture" id="6" src="images/Planets/Saturn-Main-Main2.jpeg" alt="Saturn"> 
+//                     </a>
+//                 </li>
+//                 <li>
+//                     <div class="image_title">
+//                         <a href="#">Uranus</a>
+//                     </div>
+//                     <a href="#">
+//                         <img class="planet-picture" id="7" src="images/Planets/Uranus-Main2.jpg" alt="Uranus">
+//                     </a>
+//                 </li>
+//                 <li>
+//                     <div class="image_title">
+//                         <a href="#">Neptune</a>
+//                     </div>
+//                     <a href="#">
+//                         <img class="planet-picture" id="8" src="images/Planets/Neptune-Main.jpg" alt="Neptune">
+//                     </a>
+//                 </li>
+//                 <li>
+//                     <div class="image_title">
+//                         <a href="#">Pluto</a>
+//                     </div>
+//                     <a href="#">
+//                         <img class="planet-picture" id="9" src="images/Planets/Pluto-Main.jpg" alt="Pluto">
+//                     </a>
+//                 </li>
+//             </ul>
+//         </div>
+//     </div>
+//     <div id="planet"></div>
+//     <div id="planet-attributes"></div>
+//     <div id="moon-instructions"></div>
+//     <div id="moon-pics">
+//         <div class="moon-row"></div>
+//     </div>
+//     <div id="moon"></div>
+//     <div id="moon-attributes"></div>
+//     `
 
-    document.querySelector('body').innerHTML = snippet
+//     document.querySelector('body').innerHTML = snippet
 
-    selectPlanet();
-}
+//     selectPlanet();
+// }
     
     
 //click on explore moons button which passes in to another function the planet id to retrieve

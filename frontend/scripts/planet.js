@@ -2,105 +2,46 @@ let chosenPlanet;
 let chosenPlanetPicture;
 
 class Planet {
-    constructor(id, name, size, distance, orbital_period, day_length, gravity, description, link, has_moons) {
-    this.id = id
-    this.name = name
-    this.size = size
-    this.distance = distance
-    this.orbital_period = orbital_period
-    this.day_length = day_length
-    this.gravity = gravity
-    this.description = description
-    this.link = link
-    this.has_moons = has_moons
+    constructor(id, name, size, distance, orbital_period, day_length, gravity, description, link, has_moons, picture) {
+        this.id = id
+        this.name = name
+        this.size = size
+        this.distance = distance
+        this.orbital_period = orbital_period
+        this.day_length = day_length
+        this.gravity = gravity
+        this.description = description
+        this.link = link
+        this.has_moons = has_moons
+        this.picture = picture
     }
 
-    static renderPlanets() {
-        const clearForm = document.getElementById('user-form');
-        const clearMainImage = document.getElementById('main-pic');
-        //clear form and main image
-        clearForm.innerHTML = "";
-        clearMainImage.remove();
-        const selectPicElement = document.getElementById('planet-pics');
+    static renderPlanets(planet) {
+        // const clearForm = document.getElementById('user-form');
+        // const clearMainImage = document.getElementById('main-pic');
+        // //clear form and main image
+        // clearForm.innerHTML = "";
+        // clearMainImage.remove();
+        // const addAccordian = document.getElementById('planet-pics')
+        // const loadAccordian = `
+        // <div class="accordian>
+        //     <ul>
+        //     </ul>
+        // </div>`
+        // addAccordian.innerHTML = loadAccordian
+        const showAccordian = document.querySelector('.accordian')
+        showAccordian.classList.remove('d-none')
+        const selectPicElement = document.querySelector('ul');
         const loadPlanetPics = `
-        <div class="accordian">
-        <ul>
-            <li>
-                <div class="image_title">
-                    <a href="#">Mercury</a>
-                </div>
+        <li>
+            <div class="image_title">
+                <a href="#">${planet.name}</a>
+            </div>
                 <a href="#">
-                    <img class="planet-picture" id="1" src="images/Planets/Mercury-Colored1.jpg" alt="Mercury">
+                    <img class="planet-picture" id=${planet.id} src=${planet.picture} alt=${planet.name}>
                 </a>
-            </li>
-            <li>
-                <div class="image_title">
-                    <a href="#">Venus</a>
-                </div>
-                <a href="#">
-                    <img class="planet-picture" id="2" src="images/Planets/Venus-Main.jpg" alt="Venus">
-                </a>
-            </li>
-            <li>
-                <div class="image_title">
-                    <a href="#">Earth</a>
-                </div>
-                <a href="#">
-                    <img class="planet-picture" id="3" src="images/Planets/Earth-Main2.jpg" alt="Earth">
-                </a>
-            </li>
-            <li>
-                <div class="image_title">
-                    <a href="#">Mars</a>
-                </div>
-                <a href="#">
-                    <img class="planet-picture" id="4" src="images/Planets/Mars-Main6.jpg" alt="Mars">
-                </a>
-            </li>
-            <li>
-                <div class="image_title">
-                    <a href="#">Jupiter</a>
-                </div>
-                <a href="#">
-                    <img class="planet-picture" id="5" src="images/Planets/Jupiter-Main5.jpg" alt="Jupiter">
-                </a>
-            </li>
-            <li>
-                <div class="image_title">
-                    <a href="#">Saturn</a>
-                </div>
-                <a href="#">
-                    <img class="planet-picture" id="6" src="images/Planets/Saturn-Main-Main2.jpeg" alt="Saturn"> 
-                </a>
-            </li>
-            <li>
-                <div class="image_title">
-                    <a href="#">Uranus</a>
-                </div>
-                <a href="#">
-                    <img class="planet-picture" id="7" src="images/Planets/Uranus-Main2.jpg" alt="Uranus">
-                </a>
-            </li>
-            <li>
-                <div class="image_title">
-                    <a href="#">Neptune</a>
-                </div>
-                <a href="#">
-                    <img class="planet-picture" id="8" src="images/Planets/Neptune-Main.jpg" alt="Neptune">
-                </a>
-            </li>
-            <li>
-                <div class="image_title">
-                    <a href="#">Pluto</a>
-                </div>
-                <a href="#">
-                    <img class="planet-picture" id="9" src="images/Planets/Pluto-Main.jpg" alt="Pluto">
-                </a>
-            </li>
-        </ul>
-    </div>`;
-        //render planets
-        selectPicElement.innerHTML = loadPlanetPics;
+        </li>`;
+        selectPicElement.innerHTML += loadPlanetPics;
     }
 
     static renderSelectedPlanet(chosenPlanet) { //passes in e.target.previousElementSibling.outerHTML
@@ -142,6 +83,47 @@ class Planet {
         planetElement.innerHTML = selection;
         listenForMoonSubmit();
     }
+
+    static rerenderPlanets() {
+        //recreates planet accordian and appends to body of HTML after clearing of all elements in functions
+        const snippet = `
+        <div id="user-form"></div>
+        <div id="welcome-user"><div class="welcome"><h2 style="color: white"><center>${user.name}, please select a Planet 
+        by clicking on a tile.</center></h2></div></div>
+        <div id="planet-pics">
+            <div class="accordian">
+                <ul>
+                    ${fetchAllPlanets()}
+                </ul>
+            </div>
+        </div>
+        <div id="planet"></div>
+        <div id="planet-attributes"></div>
+        <div id="moon-instructions"></div>
+        <div id="moon-pics">
+            <div class="moon-row"></div>
+        </div>
+        <div id="moon"></div>
+        <div id="moon-attributes"></div>
+        `;
+
+        document.querySelector('body').innerHTML = snippet
+
+        selectPlanet();
+    }
+}
+
+function fetchAllPlanets() {
+    fetch(`${targetUrl}/planets`)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            data.forEach(planet => {
+                console.log(planet)
+                Planet.renderPlanets(planet)
+            })
+        })
 }
 
 function welcomeUser(name) {
@@ -160,35 +142,44 @@ function selectPlanet() {
     // iterate over pic collection and listen for which pic is being
     // selected then pass in resulting =>(e.target.outerHTML)=> into renderSelectedPlanet().
     selectFromPlanets.forEach(planet => {
-        planet.addEventListener('click', e => {            
+        planet.addEventListener('click', e => {
             //renderSelectedPlanet(e.target.outerHTML);
             chosenPlanetPicture = e.target.outerHTML
             //console.log(e)
             //console.log(e.target.outerHTML);
             //console.log(e.toElement.id)
-            fetchSelectedPlanetData(e.toElement.id);//gets pic id from selected planet to compare to DB id to render planets data
+            fetchSelectedPlanetData(e.toElement.id); //gets pic id from selected planet to compare to DB id to render planets data
         })
-    })    
+    })
 }
 
-
 function renderMoonButton(chosenPlanet) {
-    if(chosenPlanet.has_moons === "true" && chosenPlanet.id !== 3) {
+    if (chosenPlanet.has_moons === "true" && chosenPlanet.id !== 3) {
         return `<button type="submit" id="moon-button">Explore the Moons of ${chosenPlanet.name}</button>`
-    } else if(chosenPlanet.id === 3) {
+    } else if (chosenPlanet.id === 3) {
         return `<button type="submit" id="moon-button">Explore the Moon of ${chosenPlanet.name}</button>`
     }
 }
 
 function fetchSelectedPlanetData(id) {
     fetch(`${targetUrl}/planets/${id}`)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        chosenPlanet = new Planet(data.id, data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link, data.has_moons)
-        //console.log(chosenPlanet)
-        Planet.renderSelectedPlanet(chosenPlanet);
-    })
-    .catch(err => alert(err.message))
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            chosenPlanet = new Planet(data.id, data.name, data.size, data.distance, data.orbital_period, data.day_length, data.gravity, data.description, data.link, data.has_moons)
+            //console.log(chosenPlanet)
+            Planet.renderSelectedPlanet(chosenPlanet);
+        })
+        .catch(err => alert(err.message))
+}
+
+function clearFormAndMainImage() {
+    const clearForm = document.getElementById('user-form');
+    const clearMainImage = document.getElementById('main-pic');
+    //clear form and main image
+    clearForm.innerHTML = "";
+    clearMainImage.remove();
+
+    fetchAllPlanets();
 }
