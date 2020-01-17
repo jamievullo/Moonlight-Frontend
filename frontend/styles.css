@@ -3,11 +3,13 @@ body {
 }
 
 .welcome {
+    font-family: 'Titillium Web', sans-serif;
     margin-top: 50px;
     margin-bottom: 0px;
 }
 
 .jumbotron {
+    font-family: 'Titillium Web', sans-serif;
     background-color: rgb(56, 56, 73);
     margin-bottom: 0px;
     border-radius: 0em;
@@ -100,7 +102,7 @@ body {
     padding: 0;
 }
 
-.scene {
+.screen {
     width: 640px;
     height: 400px;
     margin-top: 150px;
@@ -241,4 +243,9 @@ body {
     margin-top: 8px;
     vertical-align: middle;
     width: 33%;
+}
+
+#back-button {
+    margin-right: .50em;
+    float: left;
 }

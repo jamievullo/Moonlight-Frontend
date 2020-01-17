@@ -57,7 +57,7 @@ class Planet {
         <div class="second-render"></div>
             <div class="wrapper">
                 <ul class="stage">
-                    <li class="scene">
+                    <li class="screen">
                         <div class="movie">
                             <div class="planet-animation">${chosenPlanetPicture}</div>
                             <div class="info">
@@ -74,6 +74,7 @@ class Planet {
                                 <div class="description" style="color: white">${chosenPlanet.description}</div>
                                 </p>
                                     ${renderMoonButton(chosenPlanet)}
+                                    <button type="submit" id="back-button">Go back to Planets</button>
                             </div>
                     </div>
                 </li>
@@ -82,6 +83,7 @@ class Planet {
         //<button onclick="window.location.reload()">Reload</button>
         planetElement.innerHTML = selection;
         listenForMoonSubmit();
+        listenForGoBackToPlanets();
     }
 
     static rerenderPlanets() {
@@ -120,7 +122,7 @@ function fetchAllPlanets() {
         })
         .then(function (data) {
             data.forEach(planet => {
-                console.log(planet)
+                //console.log(planet)
                 Planet.renderPlanets(planet)
             })
         })
@@ -158,6 +160,9 @@ function renderMoonButton(chosenPlanet) {
         return `<button type="submit" id="moon-button">Explore the Moons of ${chosenPlanet.name}</button>`
     } else if (chosenPlanet.id === 3) {
         return `<button type="submit" id="moon-button">Explore the Moon of ${chosenPlanet.name}</button>`
+    } else {
+        //without return of ``, rendered undefined instead of no button
+        return ``
     }
 }
 
@@ -171,7 +176,7 @@ function fetchSelectedPlanetData(id) {
             //console.log(chosenPlanet)
             Planet.renderSelectedPlanet(chosenPlanet);
         })
-        .catch(err => alert(err.message))
+        .catch(err => console.log(err))
 }
 
 function clearFormAndMainImage() {
