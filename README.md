@@ -60,6 +60,7 @@ ruby '2.6.1'
 * https://css-tricks.com
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript
 * https://www.w3schools.com/js/default.asp
+* https://fonts.google.com/specimen/Titillium+Web?selection.family=Titillium+Web
 
 ### License
 * MIT License

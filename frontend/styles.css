@@ -249,3 +249,14 @@ body {
     margin-right: .50em;
     float: left;
 }
+
+.navbar {
+    font-family: 'Titillium Web', sans-serif;
+    height: 2em;
+    background-color: white;
+}
+
+h2, h3, h4{
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+}

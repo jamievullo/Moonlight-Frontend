@@ -5,13 +5,26 @@ document.addEventListener('DOMContentLoaded', function () {
     //after content loads fire userForm() function and load form.
     //listenForSubmit() listens for submit event and 
     //sets userName to value submitted on form.
+    navbar();
+    astronomyPicOfDayListener();
     userForm();
     listenForSubmit();
-    
 });
 
+const navbar = () => {
+    const navbarContainer = document.getElementById('navbar')
+    const renderNavbar = 
+    `<nav class="navbar">
+            <div id="apd">Astonomy Pic of Day</div>
+            <div id="ssl">Space Station Location</div>
+            <div id="mrp">Mars Rover Photos</div>
+            <div id="btp">Back to Planets</div>
+    </nav>`
+    return navbarContainer.innerHTML = renderNavbar
+}
+
 //creates form for userName to be persisted to database and welcomes user.
-function userForm() {
+const userForm = () => {
     const form = `<div class="jumbotron" id="new-user-form">
     <center>
         <h2 style="color: white">Welcome to Project Moonlight where we 
@@ -30,7 +43,7 @@ function userForm() {
     formContent.innerHTML = form;
 }
 
-function listenForSubmit() {
+const listenForSubmit = () => {
     const newUserForm = document.getElementById('new-user-form');
 
     newUserForm.addEventListener('submit', e => {
@@ -44,7 +57,7 @@ function listenForSubmit() {
     });
 }
 
-function postUser(name) {
+const postUser = (name) => {
     user = {
         name: `${name}`
     };

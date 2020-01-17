@@ -89,6 +89,9 @@ class Planet {
     static rerenderPlanets() {
         //recreates planet accordian and appends to body of HTML after clearing of all elements in functions
         const snippet = `
+        <div id="navbar">
+            ${navbar()}
+        </div>
         <div id="user-form"></div>
         <div id="welcome-user"><div class="welcome"><h2 style="color: white"><center>${user.name}, please select a Planet 
         by clicking on a tile.</center></h2></div></div>
@@ -115,7 +118,7 @@ class Planet {
     }
 }
 
-function fetchAllPlanets() {
+const fetchAllPlanets = () => {
     fetch(`${targetUrl}/planets`)
     .then(function (response) {
         return response.json();
@@ -129,7 +132,7 @@ function fetchAllPlanets() {
     .catch(err => alert(err))
 }
 
-function welcomeUser(name) {
+const welcomeUser = (name) => {
     const welcomeUserBox = document.getElementById('welcome-user');
     //create variable that displays welcome message based on username.
     const welcome = `<div class="welcome"><h2 style="color: white"><center>Welcome ${name}, please select a Planet 
@@ -139,7 +142,7 @@ function welcomeUser(name) {
     selectPlanet();
 }
 
-function selectPlanet() {
+const selectPlanet = () => {
     // set variable to pic id for planets
     const selectFromPlanets = document.querySelectorAll('.accordian');
     // iterate over pic collection and listen for which pic is being
@@ -156,18 +159,18 @@ function selectPlanet() {
     })
 }
 
-function renderMoonButton(chosenPlanet) {
+const renderMoonButton = (chosenPlanet) => {
     if (chosenPlanet.has_moons === "true" && chosenPlanet.id !== 3) {
         return `<button type="submit" id="moon-button">Explore the Moons of ${chosenPlanet.name}</button>`
     } else if (chosenPlanet.id === 3) {
-        return `<button type="submit" id="moon-button">Explore the Moon of ${chosenPlanet.name}</button>`
+        return `<button type="submit" id="moon-button">Explore ${chosenPlanet.name}'s Moon</button>`
     } else {
         //without return of ``, rendered undefined instead of no button
         return ``
     }
 }
 
-function fetchSelectedPlanetData(id) {
+const fetchSelectedPlanetData = (id) => {
     fetch(`${targetUrl}/planets/${id}`)
         .then(function (response) {
             return response.json();
@@ -180,7 +183,7 @@ function fetchSelectedPlanetData(id) {
         .catch(err => alert(err))
 }
 
-function clearFormAndMainImage() {
+const clearFormAndMainImage = () => {
     const clearForm = document.getElementById('user-form');
     const clearMainImage = document.getElementById('main-pic');
     //clear form and main image

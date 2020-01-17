@@ -64,7 +64,7 @@ class Moon {
 
 }
 
-function listenForGoBackToPlanets() {
+const listenForGoBackToPlanets = () => {
     const goBack = document.getElementById('back-button');
     goBack.addEventListener('click', e => {
         // console.log(chosenPlanet.id);
@@ -73,7 +73,7 @@ function listenForGoBackToPlanets() {
     });
 }
 
-function listenForMoonSubmit() {
+const listenForMoonSubmit = () => {
     if (chosenPlanet.has_moons === "true") {
     const retrieveMoons = document.getElementById('moon-button');    
     retrieveMoons.addEventListener('click', e => {
@@ -84,7 +84,7 @@ function listenForMoonSubmit() {
     } 
 }
 
-function fetchChosenPlanetMoonData() {
+const fetchChosenPlanetMoonData = () => {
     //keeping routes restful using the planet id for moon rendering
     fetch(`${targetUrl}/planets/${chosenPlanet.id}/moons`)
     .then(function(response) {
@@ -97,7 +97,7 @@ function fetchChosenPlanetMoonData() {
     .catch(err => alert(err))
 }
 
-function createMoon(data) {
+const createMoon = (data) => {
     //clears variable for back button and prevents duplicate rendering
     chosenMoons = []
     data.map(moon => {
@@ -108,7 +108,7 @@ function createMoon(data) {
     selectPlanetMoons(chosenMoons);
 }
 
-function selectPlanetMoons(chosenMoons) {
+const selectPlanetMoons = (chosenMoons) => {
     //clears varible for back button and prevents duplicate rendering
     selectedMoons = []
     chosenMoons.map(moons => {
@@ -131,15 +131,15 @@ function selectPlanetMoons(chosenMoons) {
         selectMoon();
     }
 
-function renderPlanetMoonsInstructions() {
+const renderPlanetMoonsInstructions = () => {
     const moonInstructions = document.getElementById('moon-instructions')
     const moonInstructionsDisplay = // display instructions for selecting a moon
-    `<h2><center>${user.name}, select a moon for more information by clicking on its image</center></h2>`;
+    `<h2><center>${user.name}, select a Moon for more information by clicking on its image</center></h2>`;
 
     moonInstructions.innerHTML = moonInstructionsDisplay;
 }
 
-function selectMoon() {
+const selectMoon = () => {
     const selectFromMoons = document.querySelectorAll('.super-moon')
     selectFromMoons.forEach(moon => {
     moon.addEventListener('click', e => {
@@ -153,7 +153,7 @@ function selectMoon() {
     })
 }
 
-function fetchSelectedMoonData(id) {
+const fetchSelectedMoonData = (id) => {
     fetch(`${targetUrl}/moons/${id}`)
     .then(function(response) {
         return response.json();
