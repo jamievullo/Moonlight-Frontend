@@ -115,6 +115,8 @@ class Planet {
         document.querySelector('body').innerHTML = snippet
 
         selectPlanet();
+        astronomyPicOfDayListener();
+        backToPlanetsNavbarListener();
     }
 }
 
@@ -138,7 +140,12 @@ const welcomeUser = (name) => {
     const welcome = `<div class="welcome"><h2 style="color: white"><center>Welcome ${name}, please select a Planet 
     by clicking on a tile.</center></h2></div>`;
 
+    const x = document.getElementById('navbar')
+    x.innerHTML = navbar();
+    astronomyPicOfDayListener();
+    backToPlanetsNavbarListener();
     welcomeUserBox.innerHTML = welcome;
+
     selectPlanet();
 }
 

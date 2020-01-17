@@ -11,18 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     listenForSubmit();
 });
 
-const navbar = () => {
-    const navbarContainer = document.getElementById('navbar')
-    const renderNavbar = 
-    `<nav class="navbar">
-            <div id="apd">Astonomy Pic of Day</div>
-            <div id="ssl">Space Station Location</div>
-            <div id="mrp">Mars Rover Photos</div>
-            <div id="btp">Back to Planets</div>
-    </nav>`
-    return navbarContainer.innerHTML = renderNavbar
-}
-
 //creates form for userName to be persisted to database and welcomes user.
 const userForm = () => {
     const form = `<div class="jumbotron" id="new-user-form">
