@@ -68,7 +68,7 @@ function listenForGoBackToPlanets() {
     const goBack = document.getElementById('back-button');
     goBack.addEventListener('click', e => {
         // console.log(chosenPlanet.id);
-        console.log(e);
+        //console.log(e);
         Planet.rerenderPlanets()
     });
 }
@@ -94,7 +94,7 @@ function fetchChosenPlanetMoonData() {
         //console.log(data)
         createMoon(data);       
     })
-    .catch(err => alert(err.message))
+    .catch(err => alert(err))
 }
 
 function createMoon(data) {
@@ -162,7 +162,7 @@ function fetchSelectedMoonData(id) {
         //console.log(data)
         Moon.renderMoon(data)
     })
-    .catch(err => alert(err.message))
+    .catch(err => alert(err))
 }
     
     

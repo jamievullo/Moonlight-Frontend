@@ -117,15 +117,16 @@ class Planet {
 
 function fetchAllPlanets() {
     fetch(`${targetUrl}/planets`)
-        .then(function (response) {
-            return response.json();
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        data.forEach(planet => {
+            //console.log(planet)
+        Planet.renderPlanets(planet)
         })
-        .then(function (data) {
-            data.forEach(planet => {
-                //console.log(planet)
-                Planet.renderPlanets(planet)
-            })
-        })
+    })
+    .catch(err => alert(err))
 }
 
 function welcomeUser(name) {
@@ -176,7 +177,7 @@ function fetchSelectedPlanetData(id) {
             //console.log(chosenPlanet)
             Planet.renderSelectedPlanet(chosenPlanet);
         })
-        .catch(err => console.log(err))
+        .catch(err => alert(err))
 }
 
 function clearFormAndMainImage() {
