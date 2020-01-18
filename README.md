@@ -61,6 +61,7 @@ ruby '2.6.1'
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript
 * https://www.w3schools.com/js/default.asp
 * https://fonts.google.com/specimen/Titillium+Web?selection.family=Titillium+Web
+* https://leafletjs.com/
 
 ### License
 * MIT License

@@ -268,3 +268,8 @@ h2, h3, h4{
     height: 400px;
     background-color: grey;
 }
+
+span {
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+}
