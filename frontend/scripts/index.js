@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //sets userName to value submitted on form.
     navbar();
     astronomyPicOfDayListener();
+    spaceStationLocationListener();
     userForm();
     listenForSubmit();
 });

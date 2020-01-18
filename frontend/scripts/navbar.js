@@ -34,6 +34,7 @@ const backToPlanetsNavbarListener = () => {
 }
 
 const listeners = () => {
-    const btp = backToPlanetsNavbarListener();
-    const apd = astronomyPicOfDayListener();
+    backToPlanetsNavbarListener();
+    astronomyPicOfDayListener();
+    spaceStationLocationListener();
 }

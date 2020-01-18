@@ -1,8 +1,3 @@
-let selectedMoon;
-let chosenMoons = [];
-let newMoon;
-let selectedMoons = [];
-
 class Moon {
     constructor(id, name, size, orbital_period, gravity, description, link, picture, planet_id) {
     this.id = id
@@ -97,6 +92,9 @@ const fetchChosenPlanetMoonData = () => {
     .catch(err => alert(err))
 }
 
+let chosenMoons = [];
+let newMoon;
+
 const createMoon = (data) => {
     //clears variable for back button and prevents duplicate rendering
     chosenMoons = []
@@ -107,6 +105,8 @@ const createMoon = (data) => {
     })
     selectPlanetMoons(chosenMoons);
 }
+
+let selectedMoons = [];
 
 const selectPlanetMoons = (chosenMoons) => {
     //clears varible for back button and prevents duplicate rendering
@@ -138,6 +138,8 @@ const renderPlanetMoonsInstructions = () => {
 
     moonInstructions.innerHTML = moonInstructionsDisplay;
 }
+
+let selectedMoon;
 
 const selectMoon = () => {
     const selectFromMoons = document.querySelectorAll('.super-moon')

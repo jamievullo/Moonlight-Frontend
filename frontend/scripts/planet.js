@@ -1,6 +1,3 @@
-let chosenPlanet;
-let chosenPlanetPicture;
-
 class Planet {
     constructor(id, name, size, distance, orbital_period, day_length, gravity, description, link, has_moons, picture) {
         this.id = id
@@ -115,8 +112,7 @@ class Planet {
         document.querySelector('body').innerHTML = snippet
 
         selectPlanet();
-        astronomyPicOfDayListener();
-        backToPlanetsNavbarListener();
+        listeners();
     }
 }
 
@@ -142,12 +138,13 @@ const welcomeUser = (name) => {
 
     const x = document.getElementById('navbar')
     x.innerHTML = navbar();
-    astronomyPicOfDayListener();
-    backToPlanetsNavbarListener();
+    listeners();
     welcomeUserBox.innerHTML = welcome;
 
     selectPlanet();
 }
+
+let chosenPlanetPicture;
 
 const selectPlanet = () => {
     // set variable to pic id for planets
@@ -176,6 +173,8 @@ const renderMoonButton = (chosenPlanet) => {
         return ``
     }
 }
+
+let chosenPlanet;
 
 const fetchSelectedPlanetData = (id) => {
     fetch(`${targetUrl}/planets/${id}`)

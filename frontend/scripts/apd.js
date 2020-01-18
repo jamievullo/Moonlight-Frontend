@@ -60,6 +60,7 @@ const pickDateForm = () => {
     <center>
         <h2>Please Select Date:</h2>
         <select id="year">
+            <option value="2020">2020</option>
             <option value="2019">2019</option>
             <option value="2018">2018</option>
             <option value="2017">2017</option>
@@ -146,5 +147,6 @@ const pickDateForm = () => {
     </center>`;
     renderDateForm.innerHTML = dateForm
     backToPlanetsNavbarListener();
+    spaceStationLocationListener();
     getDate();
 }
