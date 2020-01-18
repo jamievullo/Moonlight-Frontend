@@ -33,6 +33,15 @@ const backToPlanetsNavbarListener = () => {
     })
 }
 
+const spaceStationLocationListener = () => {
+    const sslElement = document.getElementById('ssl')
+    sslElement.addEventListener('click', e => {
+        //console.log(e)
+        renderMap();
+        spaceStationFetch();
+    })
+}
+
 const listeners = () => {
     backToPlanetsNavbarListener();
     astronomyPicOfDayListener();

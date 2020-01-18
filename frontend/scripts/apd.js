@@ -58,7 +58,7 @@ const pickDateForm = () => {
     ${navbar()}
     <form>
     <center>
-        <h2>Please Select Date:</h2>
+        <h2>Choose Date for NASA's Asronomy Picture of the day:</h2>
         <select id="year">
             <option value="2020">2020</option>
             <option value="2019">2019</option>

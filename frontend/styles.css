@@ -254,6 +254,7 @@ body {
     font-family: 'Titillium Web', sans-serif;
     height: 2em;
     background-color: white;
+    cursor: pointer;
 }
 
 h2, h3, h4{
