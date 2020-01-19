@@ -62,6 +62,7 @@ ruby '2.6.1'
 * https://www.w3schools.com/js/default.asp
 * https://fonts.google.com/specimen/Titillium+Web?selection.family=Titillium+Web
 * https://api.nasa.gov/
+* https://opentdb.com/api_config.php
 * https://wheretheiss.at/w/developer
 * https://leafletjs.com/
 * http://leaflet-extras.github.io/leaflet-providers/preview/
