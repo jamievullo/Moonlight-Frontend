@@ -4,7 +4,7 @@ const navbar = () => {
     `<nav class="navbar">
             <div id="apd">Astonomy Pic of Day</div>
             <div id="ssl">Space Station Location</div>
-            <div id="mrp">Mars Rover Photos</div>
+            <div id="quiz">Science Quiz</div>
             ${navbarConditional()}
     </nav>`
     return navbarContainer.innerHTML = renderNavbar
@@ -46,4 +46,14 @@ const listeners = () => {
     backToPlanetsNavbarListener();
     astronomyPicOfDayListener();
     spaceStationLocationListener();
+    quizListener();
+}
+
+const quizListener = () => {
+    const quizElement = document.getElementById('quiz')
+    quizElement.addEventListener('click', e => {
+        console.log(e)
+        renderQuiz();
+        //fetchQuiz();
+    })
 }

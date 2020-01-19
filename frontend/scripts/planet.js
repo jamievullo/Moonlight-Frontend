@@ -80,6 +80,7 @@ class Planet {
         //<button onclick="window.location.reload()">Reload</button>
         planetElement.innerHTML = selection;
         listenForMoonSubmit();
+        quizListener();
         listenForGoBackToPlanets();
     }
 

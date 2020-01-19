@@ -65,6 +65,7 @@ ruby '2.6.1'
 * https://wheretheiss.at/w/developer
 * https://leafletjs.com/
 * http://leaflet-extras.github.io/leaflet-providers/preview/
+* https://leanpub.com/leaflet-tips-and-tricks
 
 ### License
 * MIT License

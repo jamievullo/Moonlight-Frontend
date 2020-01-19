@@ -273,3 +273,25 @@ span {
     font-family: 'Titillium Web', sans-serif;
     color: white;
 }
+
+p {
+    font-family: 'Titillium Web', sans-serif;
+    color: white; 
+    margin-left: 1em;
+}
+
+.intro {
+    background-color:  rgb(56, 56, 73);
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+}
+
+.quiz {
+    background-color:  rgb(56, 56, 73);
+}
+
+.form-check-label {
+    margin: 2px;
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+}

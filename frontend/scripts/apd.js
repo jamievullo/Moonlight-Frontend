@@ -51,6 +51,7 @@ const addDescription = (description) => {
     imageDescription.innerText = description
 }
 
+//in navbar.js
 const pickDateForm = () => {
     const renderDateForm = document.querySelector('body')
     const dateForm = `

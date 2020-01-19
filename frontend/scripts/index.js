@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     navbar();
     astronomyPicOfDayListener();
     spaceStationLocationListener();
+    quizListener();
     userForm();
     listenForSubmit();
 });
