@@ -11,7 +11,7 @@ A web application made using the Rails framework as an API for backend and JavaS
 * License
 
 ### Description
-This is a single page application that allows Users to signup and explore our Solar Systems Planets and Moons. 
+This is a single page application that allows Users to signup and explore our Solar Systems Planets and Moons. They can also check out the NASA picture of the day, check out the International Space Station's location, and take a fun Science or Math based Quiz. 
 
 ### Technologies
 This application utilizes the Ruby Programming language and JavaScript while using several gems (listed)
