@@ -21,7 +21,7 @@ const navbarConditional = () => {
 const astronomyPicOfDayListener = () => {
     const apdElement = document.getElementById('apd')
     apdElement.addEventListener('click', e => {
-        console.log(e)
+        //console.log(e)
         pickDateForm();
     })
 }
