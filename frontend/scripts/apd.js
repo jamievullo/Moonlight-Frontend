@@ -149,5 +149,6 @@ const pickDateForm = () => {
     renderDateForm.innerHTML = dateForm
     backToPlanetsNavbarListener();
     spaceStationLocationListener();
+    quizListener();
     getDate();
 }

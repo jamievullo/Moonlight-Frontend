@@ -37,6 +37,7 @@ const renderMap = () => {
 
     backToPlanetsNavbarListener();
     astronomyPicOfDayListener();
+    quizListener();
     refreshButtonListener();
 }
 
