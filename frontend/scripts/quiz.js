@@ -1,5 +1,3 @@
-//const correctAnswer = ['B'];
-
 const pickQuizParams = () => {
     const quizParamsElement = document.querySelector('body')
     const quizParams = `
@@ -136,8 +134,8 @@ const fetchQuiz = (addSelections) => {
     .then(function(data) {
         //console.log(data)
         let fetchResult = [...data.results]
-        console.log(data.results[0].correct_answer)
-        console.log(data.results[0].incorrect_answers)
+        //console.log(data.results[0].correct_answer)
+        //console.log(data.results[0].incorrect_answers)
         fetchResult.forEach(function (result, i) {
             questions.push(new Question(result.question, (i + 1), result.correct_answer, result.incorrect_answers))
         
@@ -163,7 +161,7 @@ const quizFormTemplate = () => {
 const checkResultsListener = () => {
     const form = document.getElementById('results');
     form.addEventListener('click', e => {
-        console.log(e)
+        //console.log(e)
         e.preventDefault();
         checkAnswers();
     })
@@ -185,7 +183,7 @@ const checkAnswers = () => {
         form.q9.value,
         form.q10.value
     ];
-    console.log(userAnswers)
+    //console.log(userAnswers)
 
     //check answers
     userAnswers.forEach((answer) => {
