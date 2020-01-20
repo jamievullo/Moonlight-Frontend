@@ -6,7 +6,7 @@ const renderMap = () => {
     const showMap = `
     <div id="navbar"></div>
     ${navbar()}
-    <center><h2>This is the current location of the International Space Station</h2>
+    <center><h2>This is the Current Location of the International Space Station</h2>
     <div>
     <span>Latitude: <span id="lat"></span>°</span>
     <span>Longitude: <span id="lon"></span>°</span>

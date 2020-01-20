@@ -2,7 +2,7 @@ const navbar = () => {
     const navbarContainer = document.getElementById('navbar')
     const renderNavbar = 
     `<nav class="navbar">
-            <div id="apd">Astonomy Pic of Day</div>
+            <div id="apd">Astronomy Pic of Day</div>
             <div id="ssl">Space Station Location</div>
             <div id="quiz">Science Quiz</div>
             ${navbarConditional()}

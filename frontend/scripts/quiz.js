@@ -5,7 +5,7 @@ const pickQuizParams = () => {
     ${navbar()}
     <form>
         <center>
-                <h2>Please select a Quiz Category and Difficulty to get the fun started</h2>
+                <h2>Please Select a Quiz Category and Difficulty to Get the Fun Started</h2>
             <select id="category">
                 <option value="17">Science & Nature</option>
                 <option value="18">Computers</option>
