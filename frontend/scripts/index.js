@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', function () {
     //after content loads fire userForm() function and load form.
     //listenForSubmit() listens for submit event and 
     //sets userName to value submitted on form.
-    navbar();
-    astronomyPicOfDayListener();
-    spaceStationLocationListener();
-    quizListener();
+    // navbar();
+    // astronomyPicOfDayListener();
+    // spaceStationLocationListener();
+    // quizListener();
     userForm();
     listenForSubmit();
 });
@@ -21,7 +21,7 @@ const userForm = () => {
         <form>
             <div>
                 <label for"userName" style="color: white">Username:</label>
-                <input type="text" id="userName" name="userName">
+                <input type="text" id="userName" name="userName" required>
                 <button type="submit">Start Exploring</button>
             </div>
         </form>

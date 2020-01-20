@@ -54,7 +54,8 @@ body {
     box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
-    transition: all 1.05s; /*Transitions to give animation effect*/
+    transition: all 1.05s;
+    /*Transitions to give animation effect*/
     -webkit-transition: all 1.05s;
     -moz-transition: all 1.05s;
 }
@@ -127,7 +128,8 @@ body {
 .movie .planet-animation,
 .movie .info {
     position: absolute;
-    object-fit: cover; /*crops image instead of squishing or stretching */
+    object-fit: cover;
+    /*crops image instead of squishing or stretching */
     width: 640px;
     height: 400px;
     background-color: #fff;
@@ -257,7 +259,9 @@ body {
     cursor: pointer;
 }
 
-h2, h3, h4 {
+h2,
+h3,
+h4 {
     font-family: 'Titillium Web', sans-serif;
     color: white;
 }
@@ -276,18 +280,18 @@ span {
 
 p {
     font-family: 'Titillium Web', sans-serif;
-    color: white; 
+    color: white;
     margin-left: 1em;
 }
 
 .intro {
-    background-color:  rgb(56, 56, 73);
+    background-color: rgb(56, 56, 73);
     font-family: 'Titillium Web', sans-serif;
     color: white;
 }
 
 .quiz {
-    background-color:  rgb(56, 56, 73);
+    background-color: rgb(56, 56, 73);
 }
 
 .form-check-label {
@@ -296,10 +300,14 @@ p {
     color: white;
 }
 
-/* .result {
-    color: green;
+input:invalid {
+    border: 2px dashed red;
 }
 
-.result span.text-primary {
-    color: green;
-} */
+input:invalid:required {
+    background-image: linear-gradient(to right, pink, lightgreen);
+}
+
+input:valid {
+    border: 2px solid black;
+}

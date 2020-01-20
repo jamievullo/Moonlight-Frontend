@@ -21,6 +21,10 @@ const pickQuizParams = () => {
     </form>`;
     quizParamsElement.innerHTML = quizParams
     getSelection();
+    backToPlanetsNavbarListener();
+    astronomyPicOfDayListener();
+    spaceStationLocationListener();
+
 }
 
 const getSelection = () => {
@@ -200,7 +204,7 @@ const checkAnswers = () => {
     //score animation
     let output = 0;
     const timer = setInterval(() => {
-        result.querySelector('span').textContent = `${output}%`;
+        result.querySelector('span').textContent = `Your Score: ${output}%`;
         if (output === score) {
             clearInterval(timer);
         } else {
