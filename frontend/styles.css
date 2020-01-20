@@ -301,13 +301,13 @@ p {
 }
 
 input:invalid {
-    border: 2px dashed red;
+    border: 3px dashed red;
 }
 
 input:invalid:required {
-    background-image: linear-gradient(to right, pink, lightgreen);
+    background-image: linear-gradient(to right, rgb(212, 152, 162), rgb(165, 245, 182));
 }
 
 input:valid {
-    border: 2px solid black;
+    border: 2px solid rgb(67, 64, 255);
 }

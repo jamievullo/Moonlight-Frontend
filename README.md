@@ -67,8 +67,14 @@ ruby '2.6.1'
 * https://leafletjs.com/
 * http://leaflet-extras.github.io/leaflet-providers/preview/
 * https://leanpub.com/leaflet-tips-and-tricks
+* https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation
 
 ### License
 * MIT License
 
 ### Possible Future Changes or upgrades
+* Making more components that draw from NASA API's
+* Styling the "all planet moons" rendering
+* Adding a Sun component
+* Adding Constellations component(the origin story of this project)
+* Adding size comparison for Planets compared to Earth

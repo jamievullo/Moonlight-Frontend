@@ -21,7 +21,7 @@ const userForm = () => {
         <form>
             <div>
                 <label for"userName" style="color: white">Username:</label>
-                <input type="text" id="userName" name="userName" required>
+                <input type="text" id="userName" name="userName" required minlength="2">
                 <button type="submit">Start Exploring</button>
             </div>
         </form>
