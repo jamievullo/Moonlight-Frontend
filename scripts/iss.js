@@ -28,7 +28,7 @@ const renderMap = () => {
     tiles.addTo(mymap);
     //JS object literal like JSON
     let ISSIcon = L.icon({
-        iconUrl: 'images/ISS-Mainimage.ico',    
+        iconUrl: 'images/ISS-Mainimage.png',    
         iconSize:     [50, 50], // size of the icon
         iconAnchor:   [25, 25], // point of the icon which will correspond to marker's location
     });
