@@ -1,4 +1,4 @@
-const targetUrl = "https://moonlight-backend.herokuapp.com"
+const targetUrl = "https://project-moonlight-backend.herokuapp.com"
 
 document.addEventListener('DOMContentLoaded', function () {
     //after content loads fire userForm() function and load form.

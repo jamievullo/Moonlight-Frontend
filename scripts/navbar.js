@@ -52,6 +52,7 @@ const listeners = () => {
 const quizListener = () => {
     const quizElement = document.getElementById('quiz')
     quizElement.addEventListener('click', e => {
+        e.preventDefault();
         //console.log(e)
         pickQuizParams();
         //renderQuiz();

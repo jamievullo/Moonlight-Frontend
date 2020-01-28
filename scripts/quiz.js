@@ -16,7 +16,7 @@ const pickQuizParams = () => {
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
             </select>
-            <button type="submit" id="quiz-button">Submit</button>
+            <button id="quiz-button">Submit</button>
         </center>
     </form>`;
     quizParamsElement.innerHTML = quizParams
