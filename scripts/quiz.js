@@ -13,8 +13,9 @@ const pickQuizParams = () => {
                 <option value="22">Geography</option>
             </select>
             <select id="difficulty">
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
+                <option value="easy">Normal</option>
+                <option value="medium">Hard</option>
+                <option value="hard">Big Brain</option>
             </select>
             <button id="quiz-button">Submit</button>
         </center>
