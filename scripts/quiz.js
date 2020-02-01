@@ -3,8 +3,8 @@ const pickQuizParams = () => {
     const quizParams = `
     <div id="navbar"></div>
     ${navbar()}
-    <form>
-        <center>
+    <center>
+        <form>
                 <h2>Please Select a Quiz Category and Difficulty to Get the Fun Started</h2>
             <select id="category">
                 <option value="17">Science & Nature</option>
@@ -17,9 +17,9 @@ const pickQuizParams = () => {
                 <option value="medium">Hard</option>
                 <option value="hard">Big Brain</option>
             </select>
+        </form>
             <button id="quiz-button">Submit</button>
-        </center>
-    </form>`;
+        </center>`;
     quizParamsElement.innerHTML = quizParams
     getSelection();
     backToPlanetsNavbarListener();
