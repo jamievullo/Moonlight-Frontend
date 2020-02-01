@@ -18,7 +18,7 @@ const pickQuizParams = () => {
                 <option value="hard">Big Brain</option>
             </select>
         </form>
-            <button id="quiz-button">Submit</button>
+            <button id="quiz-button" style="margin-top: 5px">Submit</button>
         </center>`;
     quizParamsElement.innerHTML = quizParams
     getSelection();
