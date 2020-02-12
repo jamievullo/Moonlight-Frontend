@@ -141,9 +141,9 @@ const pickDateForm = () => {
         <button type="submit" id="button">Submit</button>
     </form>
     <div class="img d-none">
-        <img src="" id="showtime" width="800px" height="500px">
+        <img src="" id="showtime" width="700px" height="400px">
         <h3 id="title"></h3>
-        <h4 id="description"></h4>
+        <h5 id="description"></h5>
     </div>
     </center>`;
     renderDateForm.innerHTML = dateForm

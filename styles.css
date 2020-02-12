@@ -311,3 +311,13 @@ input:invalid:required {
 input:valid {
     border: 2px solid rgb(67, 64, 255);
 }
+
+@media only screen and (min-width: 768px) {
+
+}
+
+h5 {
+    margin: 2em;
+    color: white;
+}
+
